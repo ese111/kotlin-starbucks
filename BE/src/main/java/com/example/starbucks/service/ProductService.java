@@ -2,6 +2,7 @@ package com.example.starbucks.service;
 
 import com.example.starbucks.domain.Product;
 import com.example.starbucks.dto.ProductDetailDto;
+import com.example.starbucks.dto.ProductRecommendResponse;
 import com.example.starbucks.dto.ProductListDto;
 import com.example.starbucks.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,10 @@ public class ProductService {
     public ProductDetailDto getProductDetailById(Long id) {
         Product product = productRepository.findOne(id);
         return ProductDetailDto.of(product);
+    }
+
+    public List<ProductRecommendResponse> findRecommend() {
+        return null;
     }
 
     public List<ProductListDto> getPopularProduct(String sortBy, String orderBy) {

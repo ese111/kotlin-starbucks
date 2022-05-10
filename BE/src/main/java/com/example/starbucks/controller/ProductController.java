@@ -1,7 +1,7 @@
 package com.example.starbucks.controller;
 
 import com.example.starbucks.dto.ProductDetailDto;
-import com.example.starbucks.dto.ProductListDto;
+import com.example.starbucks.dto.ProductRecommendResponse;
 import com.example.starbucks.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +26,9 @@ public class ProductController {
     public List<ProductListDto> getPopularProduct (@RequestParam("sort-by") String sortBy,
                                                    @RequestParam("order-by") String orderBy) {
         return productService.getPopularProduct(sortBy, orderBy);
+    }
+    @GetMapping("/products/recommend")
+    public List<ProductRecommendResponse> getRecommendProducts() {
+        return productService.findRecommend();
     }
 }
