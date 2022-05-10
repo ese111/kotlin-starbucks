@@ -19,6 +19,7 @@ public class Event {
     private LocalDateTime endDateTime;
     private String target;
     private String description;
+    private String imageUrl;
     private String eventProductName;
     private boolean main;
 }

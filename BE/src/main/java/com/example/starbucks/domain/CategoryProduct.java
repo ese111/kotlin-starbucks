@@ -3,7 +3,7 @@ package com.example.starbucks.domain;
 import javax.persistence.*;
 
 @Entity
-public class SubCategory {
+public class CategoryProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,7 +12,7 @@ public class SubCategory {
     @ManyToOne
     private Category category;
 
-    private String koreanName;
-    private String englishName;
-
+    @JoinColumn
+    @ManyToOne
+    private Product product;
 }

@@ -1,16 +1,17 @@
 package com.example.starbucks.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private CategoryType type;
+
+    private String koreanName;
+    private String englishName;
+
 }

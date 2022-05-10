@@ -22,6 +22,7 @@ public class Product {
     private int na;
     private int caffeine;
     private int fat;
+    private int protein;
     private String imageUrl;
     private int orderCount;
 }
