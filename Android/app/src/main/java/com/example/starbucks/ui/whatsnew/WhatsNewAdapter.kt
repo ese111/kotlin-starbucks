@@ -1,4 +1,4 @@
-package com.example.starbucks.ui
+package com.example.starbucks.ui.whatsnew
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starbucks.data.WhatsNewItem
 import com.example.starbucks.databinding.ItemWhatsNewBinding
 
-class WhatsNewAdapter: ListAdapter<WhatsNewItem, WhatsNewAdapter.WhatsNewViewHolder>(WhatsNewDiffUtil) {
+class WhatsNewAdapter: ListAdapter<WhatsNewItem, WhatsNewAdapter.WhatsNewViewHolder>(
+    WhatsNewDiffUtil
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WhatsNewViewHolder {
         val binding = ItemWhatsNewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,7 +21,7 @@ class WhatsNewAdapter: ListAdapter<WhatsNewItem, WhatsNewAdapter.WhatsNewViewHol
         holder.bind(currentList[position])
     }
 
-    class WhatsNewViewHolder(val binding: ItemWhatsNewBinding): RecyclerView.ViewHolder(binding.root) {
+    class WhatsNewViewHolder(private val binding: ItemWhatsNewBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(whatsNewItem: WhatsNewItem) {
             binding.item = whatsNewItem
