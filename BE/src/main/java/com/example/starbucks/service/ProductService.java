@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +49,9 @@ public class ProductService {
         if ("desc".equals(orderBy)) {
             sort = sort.descending();
         }
-        return productRepository.findAll(sort)
+        Pageable pageable = PageRequest.of(0,5, sort);
+
+        return productRepository.findAll(pageable).getContent()
                 .stream().map(ProductListDto::of)
                 .collect(Collectors.toList());
     }
