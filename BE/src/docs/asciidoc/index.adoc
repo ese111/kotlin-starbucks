@@ -1,0 +1,13 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= 스타벅스 API
+
+== 랜덤 상품 조회
+
+==== Request
+include::{snippets}/create-event/http-request.adoc[]
+
+==== Response
+include::{snippets}/create-event/http-response.adoc[]
