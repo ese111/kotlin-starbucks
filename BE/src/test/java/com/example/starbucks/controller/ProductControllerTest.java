@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.example.starbucks.config.RestDocsConfiguration;
 import com.example.starbucks.dto.ProductDetailDto;
+import com.example.starbucks.dto.ProductListDto;
 import com.example.starbucks.dto.ProductRecommendResponse;
 import com.example.starbucks.service.ProductService;
 import java.util.List;
@@ -23,6 +24,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+
+import javax.xml.transform.Result;
 
 @Import(RestDocsConfiguration.class)
 @AutoConfigureRestDocs
@@ -59,25 +62,43 @@ class ProductControllerTest {
     void 상품_상세_정보를_조회한다() throws Exception {
         //given
         given(productService.getProductDetailById(1L))
-            .willReturn(new ProductDetailDto(1L, "나이트로 바닐라 크림", "Nitro Vanilla Cream",
-                "부드러운 목넘김", 5900,75,10,20,245,1,
-                3,"imageurl"));
+            .willReturn(new ProductDetailDto(1L, "카페라떼", "Caffe Latte",
+                "대표적인 카페 라떼", 5000,110,9,8,75,6,
+                69,"Latteurl"));
 
         //when
-        ResultActions actions = mockMvc.perform(get("/prodcuts/1"));
+        ResultActions actions = mockMvc.perform(get("/products/1"));
 
         //then
+        actions
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andDo(document("product-detail"));
 
     }
 
     @Test
-    void 인기_상품_리스트를_보낸다() throws Exception {
-
+    void 인기_상품_리스트를_조회한다() throws Exception {
         //given
+        given(productService.getPopularProduct("orderCount", "desc"))
+                .willReturn(List.of(
+                        new ProductListDto(1L, "카페라떼", "Latteurl"),
+                        new ProductListDto(2L, "콜드브루", "imageurl"),
+                        new ProductListDto(3L, "바닐라 크림 프라푸치노", "imageurl"),
+                        new ProductListDto(4L, "쿨라임 피지오", "imageurl"),
+                        new ProductListDto(5L, "카페 아메리카노", "americanourl")
+                        )
+                );
 
         //when
+        ResultActions actions = mockMvc.perform(get("/products?sort-by=orderCount&order-by=desc"));
 
         //then
+        actions
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$", hasSize(5)))
+                .andDo(document("popular-product"));
 
     }
 }

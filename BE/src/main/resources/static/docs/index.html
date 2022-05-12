@@ -462,7 +462,53 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 392
+Content-Length: 372
+
+[ {
+  "id" : 1,
+  "imageUrl" : "http://~~~",
+  "name" : "랜덤 상품1"
+}, {
+  "id" : 2,
+  "imageUrl" : "http://~~~",
+  "name" : "랜덤 상품2"
+}, {
+  "id" : 3,
+  "imageUrl" : "http://~~~",
+  "name" : "랜덤 상품3"
+}, {
+  "id" : 4,
+  "imageUrl" : "http://~~~",
+  "name" : "랜덤 상품4"
+}, {
+  "id" : 5,
+  "imageUrl" : "http://~~~",
+  "name" : "랜덤 상품5"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_인기_상품_조회">인기 상품 조회</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_request_2">Request</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_2">Response</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 372
 
 [ {
   "id" : 1,
@@ -494,7 +540,7 @@ Content-Length: 392
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-11 14:24:34 +0900
+Last updated 2022-05-12 14:35:30 +0900
 </div>
 </div>
 </body>
