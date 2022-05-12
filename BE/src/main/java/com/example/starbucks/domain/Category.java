@@ -1,8 +1,11 @@
 package com.example.starbucks.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,5 +16,6 @@ public class Category {
 
     private String koreanName;
     private String englishName;
+    private String imageUrl;
 
 }
