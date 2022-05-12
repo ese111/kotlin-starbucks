@@ -5,22 +5,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class CategoryDto {
+public class CategoryResponse {
 
     private Long id;
     private String koreanName;
     private String englishName;
     private String imageUrl;
 
-    public CategoryDto(Long id, String koreanName, String englishName, String imageUrl) {
+    public CategoryResponse(Long id, String koreanName, String englishName, String imageUrl) {
         this.id = id;
         this.koreanName = koreanName;
         this.englishName = englishName;
         this.imageUrl = imageUrl;
     }
 
-    public static CategoryDto of(Category category) {
-        return new CategoryDto(category.getId(), category.getKoreanName(),
+    public static CategoryResponse of(Category category) {
+        return new CategoryResponse(category.getId(), category.getKoreanName(),
                 category.getEnglishName(), category.getImageUrl());
     }
 }

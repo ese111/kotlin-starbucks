@@ -1,7 +1,7 @@
 package com.example.starbucks.controller;
 
-import com.example.starbucks.dto.ProductDetailDto;
-import com.example.starbucks.dto.ProductListDto;
+import com.example.starbucks.dto.ProductDetailResponse;
+import com.example.starbucks.dto.ProductListResponse;
 import com.example.starbucks.dto.ProductRecommendResponse;
 import com.example.starbucks.service.ProductService;
 import java.util.List;
@@ -18,13 +18,13 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/products/{id}")
-    public ProductDetailDto getProductDetailById(@PathVariable("id") Long id) {
+    public ProductDetailResponse getProductDetailById(@PathVariable("id") Long id) {
         return productService.getProductDetailById(id);
     }
 
     @GetMapping("/products")
-    public List<ProductListDto> getPopularProduct (@RequestParam("sort-by") String sortBy,
-                                                   @RequestParam(value = "order-by", required = false) String orderBy) {
+    public List<ProductListResponse> getPopularProduct (@RequestParam("sort-by") String sortBy,
+                                                        @RequestParam(value = "order-by", required = false) String orderBy) {
         return productService.getPopularProduct(sortBy, orderBy);
     }
     @GetMapping("/products/recommend")

@@ -1,8 +1,8 @@
 package com.example.starbucks.service;
 
 import com.example.starbucks.domain.CategoryType;
-import com.example.starbucks.dto.CategoryTypeListDto;
-import com.example.starbucks.dto.CategoryDto;
+import com.example.starbucks.dto.CategoryTypeListResponse;
+import com.example.starbucks.dto.CategoryResponse;
 import com.example.starbucks.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,14 +16,14 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
 
-    public CategoryTypeListDto getSubCategories(CategoryType type) {
+    public CategoryTypeListResponse getSubCategories(CategoryType type) {
         CategoryType[] categoryTypes = CategoryType.values();
 
-        List<CategoryDto> categories = orderRepository.findByType(type)
-                .stream().map(CategoryDto::of)
+        List<CategoryResponse> categories = orderRepository.findByType(type)
+                .stream().map(CategoryResponse::of)
                 .collect(Collectors.toList());
 
-        return CategoryTypeListDto.of(categoryTypes, categories);
+        return CategoryTypeListResponse.of(categoryTypes, categories);
     }
 
 }
