@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.starbucks.data.WhatsNewItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_whats_new"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:id="@+id/iv_whats_new_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.4"
+            app:layout_constraintHeight_percent="1"
+            imageUrl="@{item.image}"
+            tools:src="@drawable/ic_baseline_image_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/whats_new_image" />
+
+        <TextView
+            android:id="@+id/tv_whats_new_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/iv_whats_new_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="@{item.title}"
+            tools:text="이제 상품(MD)도 매장 밖에서 미리 사이렌 오더하세요!" />
+
+        <TextView
+            android:id="@+id/tv_whats_new_period"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/iv_whats_new_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_whats_new_name"
+            android:text="@{item.regDate}"
+            tools:text="2022.05.03" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

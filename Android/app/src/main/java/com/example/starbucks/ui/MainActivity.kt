@@ -1,9 +1,11 @@
 package com.example.starbucks.ui
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.starbucks.databinding.ActivityMainBinding
+import com.example.starbucks.ui.whatsnew.WhatsNewActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,6 +22,15 @@ class MainActivity : AppCompatActivity() {
 
         if(checkClosedEventPopup()){
             dialog.show(supportFragmentManager, "EventDialog")
+        }
+
+        setClickWhatsNew()
+    }
+
+    private fun setClickWhatsNew() {
+        binding.topAppBar.setOnClickListener {
+            val intent = Intent(this, WhatsNewActivity::class.java)
+            startActivity(intent)
         }
     }
 

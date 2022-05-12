@@ -43,8 +43,8 @@ class EventFragment: DialogFragment() {
         }
 
         binding.btnTodayClose.setOnClickListener {
-            val sharedPreferencesEditor = sharedPreferences.edit();
-            sharedPreferencesEditor.putString("Day", date); // 오늘 '일(day)' 저장
+            val sharedPreferencesEditor = sharedPreferences.edit()
+            sharedPreferencesEditor.putString("Day", date)
             sharedPreferencesEditor.apply()
             dismiss()
         }
@@ -54,7 +54,7 @@ class EventFragment: DialogFragment() {
         super.onResume()
         // full Screen code
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
         dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
     }
 
