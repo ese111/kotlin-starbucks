@@ -6,9 +6,11 @@ import static org.mockito.Mockito.mock;
 
 import com.example.starbucks.domain.Product;
 import com.example.starbucks.dto.ProductRecommendResponse;
-import com.example.starbucks.repository.ProductRepository;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.starbucks.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

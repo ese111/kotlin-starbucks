@@ -24,7 +24,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<ProductListDto> getPopularProduct (@RequestParam("sort-by") String sortBy,
-                                                   @RequestParam("order-by") String orderBy) {
+                                                   @RequestParam(value = "order-by", required = false) String orderBy) {
         return productService.getPopularProduct(sortBy, orderBy);
     }
     @GetMapping("/products/recommend")
