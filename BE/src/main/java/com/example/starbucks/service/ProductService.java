@@ -5,14 +5,15 @@ import com.example.starbucks.dto.ProductDetailDto;
 import com.example.starbucks.dto.ProductRecommendResponse;
 import com.example.starbucks.dto.ProductListDto;
 import com.example.starbucks.repository.ProductRepository;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +24,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public ProductDetailDto getProductDetailById(Long id) {
-        Product product = productRepository.findOne(id);
+        Product product = productRepository.findById(id).orElseThrow();
         return ProductDetailDto.of(product);
     }
 
@@ -42,8 +43,12 @@ public class ProductService {
     }
 
     public List<ProductListDto> getPopularProduct(String sortBy, String orderBy) {
-        return productRepository.getPopularProduct(sortBy, orderBy);
-//                .stream().map(ProductListDto::of)
-//                .collect(Collectors.toList());
+        Sort sort = Sort.by(sortBy);
+        if ("desc".equals(orderBy)) {
+            sort = sort.descending();
+        }
+        return productRepository.findAll(sort)
+                .stream().map(ProductListDto::of)
+                .collect(Collectors.toList());
     }
 }

@@ -1,5 +1,6 @@
 package com.example.starbucks.dto;
 
+import com.example.starbucks.domain.Product;
 import lombok.Data;
 
 @Data
@@ -13,4 +14,9 @@ public class ProductListDto {
         this.koreanTitle = koreanTitle;
         this.imageUrl = imageUrl;
     }
+
+    public static ProductListDto of (Product product) {
+        return new ProductListDto(product.getId(), product.getKoreanTitle(), product.getImageUrl());
+    }
+
 }
