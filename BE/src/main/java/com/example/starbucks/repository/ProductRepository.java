@@ -18,6 +18,11 @@ public class ProductRepository {
         return em.find(Product.class, id);
     }
 
+    public List<Product> findAll() {
+        return em.createQuery("select p from Product p", Product.class)
+            .getResultList();
+    }
+
     public List<ProductListDto> getPopularProduct(String sortBy, String orderBy) {
         return em.createQuery("select new com.example.starbucks.dto.ProductListDto (p.id, p.koreanTitle, p.imageUrl) from Product p order by :sortBy :orderBy", ProductListDto.class)
                 .setMaxResults(5)

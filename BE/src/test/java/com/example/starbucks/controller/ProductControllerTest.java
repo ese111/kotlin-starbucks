@@ -38,7 +38,7 @@ class ProductControllerTest {
 
     @Test
     void 랜덤으로_5개의_상품을_조회한다() throws Exception {
-        given(productService.findRecommend())
+        given(productService.findFiveRecommendProducts())
             .willReturn(List.of(
                 new ProductRecommendResponse(1L, "http://~~~", "랜덤 상품1"),
                 new ProductRecommendResponse(2L, "http://~~~", "랜덤 상품2"),

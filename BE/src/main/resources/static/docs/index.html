@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>User</title>
+<title>스타벅스 API</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,13 +438,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
+<h1>스타벅스 API</h1>
+<div class="details">
+<span id="revnumber">version 0.0.1-SNAPSHOT</span>
+</div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_user">User</h2>
+<h2 id="_랜덤_상품_조회">랜덤 상품 조회</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_회원탈퇴_비로그인">회원탈퇴 (비로그인)</h3>
 <div class="sect3">
 <h4 id="_request">Request</h4>
 <div class="listingblock">
@@ -487,67 +489,12 @@ Content-Length: 392
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_회원탈퇴_로그인">회원탈퇴 (로그인)</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_게시물_단건_조회">게시물 단건 조회</h3>
-<div class="sect3">
-<h4 id="_request_2">Request</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
-Host: localhost:8080</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_response_2">Response</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 392
-
-[ {
-  "id" : 1,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품1"
-}, {
-  "id" : 2,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품2"
-}, {
-  "id" : 3,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품3"
-}, {
-  "id" : 4,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품4"
-}, {
-  "id" : 5,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품5"
-} ]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_fields">Fields</h4>
-<div class="paragraph">
-<p>Unresolved directive in index.adoc - include::./build/generated-snippets/create-event/response-fields.adoc[]</p>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-11 10:15:16 +0900
+Last updated 2022-05-11 14:24:34 +0900
 </div>
 </div>
 </body>
