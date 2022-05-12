@@ -1,11 +1,13 @@
 package com.example.starbucks.dto
 
-
+import android.util.Log
+import androidx.annotation.Keep
 import com.example.starbucks.common.getImageUrl
 import com.example.starbucks.data.WhatsNewItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Keep
 @Serializable
 data class WhatsNewDTO(
     @SerialName("cnt")
@@ -15,6 +17,7 @@ data class WhatsNewDTO(
     @SerialName("vo")
     val vo: Vo?
 ) {
+    @Keep
     @Serializable
     data class Vo(
         @SerialName("active_QUATER")
@@ -24,21 +27,21 @@ data class WhatsNewDTO(
         @SerialName("after_seq")
         val afterSeq: Int?,
         @SerialName("app_contn_btn_img_name")
-        val appContnBtnImgName: Any?,
+        val appContnBtnImgName: String?,
         @SerialName("app_contn_btn_link_url")
-        val appContnBtnLinkUrl: Any?,
+        val appContnBtnLinkUrl: String?,
         @SerialName("app_contn_cntnt")
-        val appContnCntnt: Any?,
+        val appContnCntnt: String?,
         @SerialName("app_contn_cntnt_img_name")
-        val appContnCntntImgName: Any?,
+        val appContnCntntImgName: String?,
         @SerialName("app_thnl_img_name")
-        val appThnlImgName: Any?,
+        val appThnlImgName: String?,
         @SerialName("app_yn")
         val appYn: String?,
         @SerialName("appyn")
         val appyn: String?,
         @SerialName("banner_type")
-        val bannerType: Any?,
+        val bannerType: String?,
         @SerialName("befor_seq")
         val beforSeq: Int?,
         @SerialName("cate")
@@ -50,13 +53,13 @@ data class WhatsNewDTO(
         @SerialName("content")
         val content: String?,
         @SerialName("contn_cntnt_xpsr_dvsn_code")
-        val contnCntntXpsrDvsnCode: Any?,
+        val contnCntntXpsrDvsnCode: String?,
         @SerialName("contn_ctn_cntnt")
-        val contnCtnCntnt: Any?,
+        val contnCtnCntnt: String?,
         @SerialName("csm_edt")
-        val csmEdt: Any?,
+        val csmEdt: String?,
         @SerialName("csm_sdt")
-        val csmSdt: Any?,
+        val csmSdt: String?,
         @SerialName("decode")
         val decode: String?,
         @SerialName("del_yn")
@@ -66,7 +69,7 @@ data class WhatsNewDTO(
         @SerialName("endDate")
         val endDate: String?,
         @SerialName("end_dt")
-        val endDt: Any?,
+        val endDt: String?,
         @SerialName("excel_Name")
         val excelName: String?,
         @SerialName("excel_yn")
@@ -90,13 +93,13 @@ data class WhatsNewDTO(
         @SerialName("img_nm")
         val imgNm: String?,
         @SerialName("img_nm_tag")
-        val imgNmTag: Any?,
+        val imgNmTag: String?,
         @SerialName("lastIndex")
-        val lastIndex: Int?,
+        val lastIndex: String?,
         @SerialName("menu_cd")
         val menuCd: String?,
         @SerialName("message")
-        val message: Any?,
+        val message: String?,
         @SerialName("mod_dt")
         val modDt: String?,
         @SerialName("mod_user")
@@ -122,7 +125,7 @@ data class WhatsNewDTO(
         @SerialName("pageUnit")
         val pageUnit: Int?,
         @SerialName("period_type")
-        val periodType: Any?,
+        val periodType: String?,
         @SerialName("prev_regdate")
         val prevRegdate: String?,
         @SerialName("prev_seq")
@@ -140,7 +143,7 @@ data class WhatsNewDTO(
         @SerialName("resultBoolean")
         val resultBoolean: Boolean?,
         @SerialName("resultString")
-        val resultString: Any?,
+        val resultString: String?,
         @SerialName("rnum")
         val rnum: Int?,
         @SerialName("row")
@@ -158,7 +161,7 @@ data class WhatsNewDTO(
         @SerialName("san_title")
         val sanTitle: String?,
         @SerialName("search")
-        val search: Any?,
+        val search: String?,
         @SerialName("searchCondition")
         val searchCondition: String?,
         @SerialName("searchKey")
@@ -166,23 +169,23 @@ data class WhatsNewDTO(
         @SerialName("searchKeyword")
         val searchKeyword: String?,
         @SerialName("search_word")
-        val searchWord: Any?,
+        val searchWord: String?,
         @SerialName("search_word_type")
-        val searchWordType: Any?,
+        val searchWordType: String?,
         @SerialName("seq")
         val seq: Int?,
         @SerialName("startDate")
         val startDate: String?,
         @SerialName("start_dt")
-        val startDt: Any?,
+        val startDt: String?,
         @SerialName("status")
         val status: String?,
         @SerialName("statusPage")
         val statusPage: String?,
         @SerialName("store_code")
-        val storeCode: Any?,
+        val storeCode: String?,
         @SerialName("sub_title_name")
-        val subTitleName: Any?,
+        val subTitleName: String?,
         @SerialName("tag_seq")
         val tagSeq: Int?,
         @SerialName("tag_txt")
@@ -200,13 +203,13 @@ data class WhatsNewDTO(
         @SerialName("view_yn")
         val viewYn: String?,
         @SerialName("web_contn_btn_img_name")
-        val webContnBtnImgName: Any?,
+        val webContnBtnImgName: String?,
         @SerialName("web_contn_btn_link_url")
-        val webContnBtnLinkUrl: Any?,
+        val webContnBtnLinkUrl: String?,
         @SerialName("web_contn_cntnt_img_name")
-        val webContnCntntImgName: Any?,
+        val webContnCntntImgName: String?,
         @SerialName("web_contn_link_nwndw_yn")
-        val webContnLinkNwndwYn: Any?,
+        val webContnLinkNwndwYn: String?,
         @SerialName("web_yn")
         val webYn: String?,
         @SerialName("webxpsrseqc")
@@ -223,7 +226,7 @@ fun WhatsNewDTO.toWhatsNewList(): List<WhatsNewItem> {
 
     this.list?.forEach { whatsNew ->
         val title = requireNotNull(whatsNew.title)
-        val regDate = requireNotNull(whatsNew.regDt)
+        val regDate = whatsNew.newsDt.orEmpty()
         val image = whatsNew.imgNm?.let { getImageUrl(it) }.orEmpty()
         whatsNewList.add(WhatsNewItem(title, regDate, image))
     }

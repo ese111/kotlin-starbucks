@@ -13,8 +13,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.text.SimpleDateFormat
-import java.util.*
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
