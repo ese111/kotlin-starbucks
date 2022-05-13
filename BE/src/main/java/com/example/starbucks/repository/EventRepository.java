@@ -12,4 +12,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 	@Query("select e from Event e where :currentDateTime between e.startDateTime and e.endDateTime")
 	List<Event> findByCurrentDateTimeIsBetweenStartDateTimeAndEndDateTime(
 		@Param("currentDateTime") LocalDateTime currentDateTime);
+
+	Event findByMain(@Param("main") boolean param);
 }
