@@ -28,6 +28,10 @@ VALUES
     7000, 400, 30, 140, 105, 27, 8, 0,
     'https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000004119]_20220412083026158.png');
 
+INSERT INTO category (korean_name, english_name, type, image_url)
+VALUES ('콜드브루','Cold brew', 'DRINK', 'image1'), ('에스프레소','Espresso', 'DRINK', 'image2'), ('프라푸치노','Frappuccino', 'DRINK', 'image3'),
+       ('브레드','Bread', 'FOOD', 'image4'), ('케이크','Cake', 'FOOD', 'image5'), ('샌드위치 & 샐러드','Sandwich & Salad', 'FOOD', 'image6'),
+       ('머그','Mug', 'GOODS', 'image7'), ('글라스','Glass', 'GOODS', 'image8'), ('플라스틱 텀플러','Plastic Tumbler', 'GOODS', 'image9');
 INSERT INTO event
 (title, description, start_date_time, end_date_time, main, event_product_name, target, image_url)
 VALUES

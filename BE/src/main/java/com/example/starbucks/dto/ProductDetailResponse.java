@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductDetailDto {
+public class ProductDetailResponse {
     private Long id;
     private String koreanTitle;
     private String englishTitle;
@@ -20,7 +20,7 @@ public class ProductDetailDto {
     private int protein;
     private String imageUrl;
 
-    public ProductDetailDto(Long id, String koreanTitle, String englishTitle, String description, int price, int calorie, int sugars, int na, int caffeine, int fat, int protein, String imageUrl) {
+    public ProductDetailResponse(Long id, String koreanTitle, String englishTitle, String description, int price, int calorie, int sugars, int na, int caffeine, int fat, int protein, String imageUrl) {
         this.id = id;
         this.koreanTitle = koreanTitle;
         this.englishTitle = englishTitle;
@@ -35,8 +35,8 @@ public class ProductDetailDto {
         this.imageUrl = imageUrl;
     }
 
-    public static ProductDetailDto of (Product product) {
-        return new ProductDetailDto(product.getId(), product.getKoreanTitle(), product.getEnglishTitle(),
+    public static ProductDetailResponse of (Product product) {
+        return new ProductDetailResponse(product.getId(), product.getKoreanTitle(), product.getEnglishTitle(),
                 product.getDescription(), product.getPrice(), product.getCalorie(), product.getSugars(),
                 product.getNa(), product.getCaffeine(), product.getFat(), product.getProtein(), product.getImageUrl());
     }

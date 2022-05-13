@@ -1,9 +1,9 @@
 package com.example.starbucks.service;
 
 import com.example.starbucks.domain.Product;
-import com.example.starbucks.dto.ProductDetailDto;
+import com.example.starbucks.dto.ProductDetailResponse;
 import com.example.starbucks.dto.ProductRecommendResponse;
-import com.example.starbucks.dto.ProductListDto;
+import com.example.starbucks.dto.ProductListResponse;
 import com.example.starbucks.repository.ProductRepository;
 
 import java.util.ArrayList;
@@ -25,9 +25,9 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductDetailDto getProductDetailById(Long id) {
+    public ProductDetailResponse getProductDetailById(Long id) {
         Product product = productRepository.findById(id).orElseThrow();
-        return ProductDetailDto.of(product);
+        return ProductDetailResponse.of(product);
     }
 
     public List<ProductRecommendResponse> findFiveRecommendProducts() {
@@ -44,7 +44,7 @@ public class ProductService {
         return productRecommendResponses;
     }
 
-    public List<ProductListDto> getPopularProduct(String sortBy, String orderBy) {
+    public List<ProductListResponse> getPopularProduct(String sortBy, String orderBy) {
         Sort sort = Sort.by(sortBy);
         if ("desc".equals(orderBy)) {
             sort = sort.descending();
@@ -52,7 +52,7 @@ public class ProductService {
         Pageable pageable = PageRequest.of(0,5, sort);
 
         return productRepository.findAll(pageable).getContent()
-                .stream().map(ProductListDto::of)
+                .stream().map(ProductListResponse::of)
                 .collect(Collectors.toList());
     }
 }
