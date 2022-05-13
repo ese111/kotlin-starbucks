@@ -1,7 +1,7 @@
 package com.example.starbucks.controller;
 
-import com.example.starbucks.dto.EventOngoingResponse;
 import com.example.starbucks.dto.EventResponse;
+import com.example.starbucks.dto.MainEventResponse;
 import com.example.starbucks.service.EventService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -16,12 +16,19 @@ public class EventController {
 	private final EventService eventService;
 
 	@GetMapping("/events/ongoing")
-	public List<EventOngoingResponse> getOngoingEvents() {
+	public List<EventResponse> getOngoingEvents() {
 		return eventService.findOngoingEvents();
 	}
 
-	@GetMapping("/events")
-	public EventResponse getMainEvent(@RequestParam("main") boolean param) {
+	@GetMapping("/events/main")
+	public MainEventResponse getMainEvent(@RequestParam("main") boolean param) {
 		return eventService.findMainEvent(param);
+	}
+
+	@GetMapping("/events")
+	public List<EventResponse> getSortedEvents(
+		@RequestParam("sort-by") String sortBy,
+		@RequestParam(value = "order-by", required = false) String orderBy) {
+		return eventService.findAllBySort(sortBy, orderBy);
 	}
 }

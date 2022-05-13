@@ -38,8 +38,9 @@ VALUES ('콜드브루','Cold brew', 'DRINK', 'https://image.istarbucks.co.kr/upl
        ('머그','Mug', 'GOODS', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/11/[9300000003570]_20211102085024757.jpg'),
        ('글라스','Glass', 'GOODS', 'https://image.istarbucks.co.kr/upload/store/skuimg/2020/02/[11108665]_20200225094939210.jpg'),
        ('플라스틱 텀플러','Plastic Tumbler', 'GOODS', 'https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9300000003796]_20220406140300832.jpg');
+
 INSERT INTO event
-(title, description, start_date_time, end_date_time, main, event_product_name, target, image_url)
+    (title, description, start_date_time, end_date_time, main, event_product_name, target, image_url)
 VALUES
     ('22 서머 e-프리퀀시 이벤트 안내', '다가올 여행의 모양은 모두 다르지만, 즐거운 여행 속 \'나\'에게 기대감과 즐거움을 주는 스타벅스의 여름 이야기.',
      '2022-05-01', '2023-05-01', true, '아이스 아메리카노', '모든 스타벅스 회원', null),
