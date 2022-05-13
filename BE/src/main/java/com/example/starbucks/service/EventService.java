@@ -1,6 +1,8 @@
 package com.example.starbucks.service;
 
+import com.example.starbucks.domain.Event;
 import com.example.starbucks.dto.EventOngoingResponse;
+import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.repository.EventRepository;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,4 +24,9 @@ public class EventService {
 			.stream().map(EventOngoingResponse::new)
 			.collect(Collectors.toList());
 	}
+
+	public EventResponse findMainEvent(boolean param) {
+		return new EventResponse(eventRepository.findByMain(param));
+	}
+
 }
