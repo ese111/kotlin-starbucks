@@ -12,6 +12,14 @@ include::{snippets}/create-event/http-request.adoc[]
 ==== Response
 include::{snippets}/create-event/http-response.adoc[]
 
+== 진행중인 이벤트 조회
+
+==== Request
+include::{snippets}/event-ongoing/http-request.adoc[]
+
+==== Response
+include::{snippets}/event-ongoing/http-response.adoc[]
+
 == 인기 상품 조회
 
 ==== Request
