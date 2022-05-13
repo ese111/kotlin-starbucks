@@ -6,32 +6,32 @@ endif::[]
 
 == 랜덤 상품 조회
 
-==== Request
-include::{snippets}/create-event/http-request.adoc[]
+=== Request
+include::{snippets}/product-recommend/http-request.adoc[]
 
-==== Response
-include::{snippets}/create-event/http-response.adoc[]
+=== Response
+include::{snippets}/product-recommend/http-response.adoc[]
 
 == 진행중인 이벤트 조회
 
-==== Request
+=== Request
 include::{snippets}/event-ongoing/http-request.adoc[]
 
-==== Response
+=== Response
 include::{snippets}/event-ongoing/http-response.adoc[]
 
 == 인기 상품 조회
 
-==== Request
+=== Request
 include::{snippets}/popular-product/http-request.adoc[]
 
-==== Response
+=== Response
 include::{snippets}/popular-product/http-response.adoc[]
 
 == 특정 상품 조회
 
-==== Request
+=== Request
 include::{snippets}/product-detail/http-request.adoc[]
 
-==== Response
+=== Response
 include::{snippets}/product-detail/http-response.adoc[]
