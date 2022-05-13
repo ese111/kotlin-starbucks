@@ -462,7 +462,7 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 372
+Content-Length: 392
 
 [ {
   "id" : 1,
@@ -491,13 +491,13 @@ Content-Length: 372
 </div>
 </div>
 <div class="sect1">
-<h2 id="_인기_상품_조회">인기 상품 조회</h2>
+<h2 id="_진행중인_이벤트_조회">진행중인 이벤트 조회</h2>
 <div class="sectionbody">
 <div class="sect3">
 <h4 id="_request_2">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /events/ongoing HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -508,29 +508,119 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 372
+Content-Length: 537
 
 [ {
   "id" : 1,
   "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품1"
+  "title" : "제목 1",
+  "description" : "설명11111"
 }, {
   "id" : 2,
   "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품2"
+  "title" : "제목 2",
+  "description" : "설명22222"
 }, {
   "id" : 3,
   "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품3"
+  "title" : "제목 3",
+  "description" : "설명33333"
 }, {
   "id" : 4,
   "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품4"
+  "title" : "제목 4",
+  "description" : "설명44444"
 }, {
   "id" : 5,
   "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품5"
+  "title" : "제목 5",
+  "description" : "설명55555"
 } ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_인기_상품_조회">인기 상품 조회</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_request_3">Request</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products?sort-by=orderCount&amp;order-by=desc HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_3">Response</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 448
+
+[ {
+  "id" : 1,
+  "koreanTitle" : "카페라떼",
+  "imageUrl" : "Latteurl"
+}, {
+  "id" : 2,
+  "koreanTitle" : "콜드브루",
+  "imageUrl" : "imageurl"
+}, {
+  "id" : 3,
+  "koreanTitle" : "바닐라 크림 프라푸치노",
+  "imageUrl" : "imageurl"
+}, {
+  "id" : 4,
+  "koreanTitle" : "쿨라임 피지오",
+  "imageUrl" : "imageurl"
+}, {
+  "id" : 5,
+  "koreanTitle" : "카페 아메리카노",
+  "imageUrl" : "americanourl"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_특정_상품_조회">특정 상품 조회</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_request_4">Request</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/1 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_4">Response</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 285
+
+{
+  "id" : 1,
+  "koreanTitle" : "카페라떼",
+  "englishTitle" : "Caffe Latte",
+  "description" : "대표적인 카페 라떼",
+  "price" : 5000,
+  "calorie" : 110,
+  "sugars" : 9,
+  "na" : 8,
+  "caffeine" : 75,
+  "fat" : 6,
+  "protein" : 69,
+  "imageUrl" : "Latteurl"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -540,7 +630,7 @@ Content-Length: 372
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-12 14:35:30 +0900
+Last updated 2022-05-13 09:42:40 +0900
 </div>
 </div>
 </body>
