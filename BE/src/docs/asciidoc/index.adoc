@@ -20,13 +20,13 @@ include::{snippets}/event-ongoing/http-request.adoc[]
 === Response
 include::{snippets}/event-ongoing/http-response.adoc[]
 
-== 이벤트 시작 날짜를 내림차순으로 조회
+== 이벤트 시작 날짜 내림차순으로 조회
 
 === Request
-include::{snippets}/event-ongoing/http-request.adoc[]
+include::{snippets}/event-sort/http-request.adoc[]
 
 === Response
-include::{snippets}/event-ongoing/http-response.adoc[]
+include::{snippets}/event-sort/http-response.adoc[]
 
 == 주문량이 높은 순서대로 상품 5개 조회
 
