@@ -2,13 +2,16 @@ package com.example.starbucks.ui
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.starbucks.R
 import com.example.starbucks.databinding.ActivityMainBinding
-import com.example.starbucks.ui.startevent.EventDialogViewModel
 import com.example.starbucks.ui.startevent.EventFragment
 import com.example.starbucks.ui.whatsnew.WhatsNewActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,6 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    private val navControl: NavController by lazy {
+        val nav = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
+        nav.findNavController()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +36,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         setClickWhatsNew()
+
+        binding.bottomNavigation.setupWithNavController(navControl)
     }
+
+
 
     private fun setClickWhatsNew() {
         binding.topAppBar.setOnClickListener {

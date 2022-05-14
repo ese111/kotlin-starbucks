@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home">
         <fragment
-            android:id="@+id/homeFragment"
+            android:id="@+id/home"
             android:name="com.example.starbucks.ui.home.HomeFragment"
             android:label="fragment_home"
             tools:layout="@layout/fragment_home" />
         <fragment
-            android:id="@+id/payFragment"
-            android:name="com.example.starbucks.ui.PayFragment"
+            android:id="@+id/pay"
+            android:name="com.example.starbucks.ui.pay.PayFragment"
             android:label="fragment_pay"
             tools:layout="@layout/fragment_pay" />
 
         <fragment
-            android:id="@+id/favoriteFragment"
-            android:name="com.example.starbucks.ui.FavoriteFragment"
+            android:id="@+id/favorite"
+            android:name="com.example.starbucks.ui.favorite.FavoriteFragment"
             android:label="fragment_favorite"
             tools:layout="@layout/fragment_favorite" />
         <fragment
-            android:id="@+id/oderFragment"
-            android:name="com.example.starbucks.ui.OderFragment"
+            android:id="@+id/order"
+            android:name="com.example.starbucks.ui.order.OderFragment"
             android:label="fragment_order"
             tools:layout="@layout/fragment_order" />
 </navigation>
