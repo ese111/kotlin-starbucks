@@ -1,6 +1,6 @@
 package com.example.starbucks.common
 
-fun getImageUrl(imageName: String) = "https://image.istarbucks.co.kr/upload/news/${imageName}"
-
-fun String.getRange(endDate: String) = "$this ~ $endDate"
+fun getItemImage(imageName: String) = "https://image.istarbucks.co.kr/upload/news/${imageName}"
+//
+//fun String.getEventRange(endDate: String) = "$this ~ $endDate"
 

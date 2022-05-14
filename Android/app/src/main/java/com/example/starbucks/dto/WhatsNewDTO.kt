@@ -1,7 +1,7 @@
 package com.example.starbucks.dto
 
 import androidx.annotation.Keep
-import com.example.starbucks.common.getImageUrl
+import com.example.starbucks.common.getItemImage
 import com.example.starbucks.data.vo.WhatsNewItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -226,7 +226,7 @@ fun WhatsNewDTO.toWhatsNewList(): List<WhatsNewItem> {
     this.list?.forEach { whatsNew ->
         val title = requireNotNull(whatsNew.title)
         val regDate = whatsNew.newsDt.orEmpty()
-        val image = whatsNew.imgNm?.let { getImageUrl(it) }.orEmpty()
+        val image = whatsNew.imgNm?.let { getItemImage(it) } ?: ""
         whatsNewList.add(WhatsNewItem(title, regDate, image))
     }
 

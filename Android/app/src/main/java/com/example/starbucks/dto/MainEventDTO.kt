@@ -1,7 +1,6 @@
 package com.example.starbucks.dto
 
 
-import com.example.starbucks.common.getRange
 import com.example.starbucks.data.vo.HomeData
 import kotlinx.serialization.Serializable
 
