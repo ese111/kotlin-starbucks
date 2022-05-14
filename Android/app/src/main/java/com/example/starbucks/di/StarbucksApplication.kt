@@ -12,7 +12,12 @@ class StarbucksApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@StarbucksApplication)
-            modules(whatsNewApiNetWorkModule, whatsNewRepositoryModule, whatsNewViewModelModule)
+            modules(
+                netWorkModule,
+                dataSourceModule,
+                repositoryModule,
+                viewModelModule
+            )
         }
     }
 }

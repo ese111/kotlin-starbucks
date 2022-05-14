@@ -1,4 +1,4 @@
-package com.example.starbucks.ui
+package com.example.starbucks.ui.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

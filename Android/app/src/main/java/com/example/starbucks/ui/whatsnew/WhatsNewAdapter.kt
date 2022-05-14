@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.starbucks.data.WhatsNewItem
+import com.example.starbucks.data.vo.WhatsNewItem
 import com.example.starbucks.databinding.ItemWhatsNewBinding
 
 class WhatsNewAdapter: ListAdapter<WhatsNewItem, WhatsNewAdapter.WhatsNewViewHolder>(

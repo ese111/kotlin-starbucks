@@ -1,7 +1,6 @@
 package com.example.starbucks.data.repository
 
-import com.example.starbucks.data.WhatsNewItem
-import com.example.starbucks.dto.WhatsNewDTO
+import com.example.starbucks.data.vo.WhatsNewItem
 import kotlinx.coroutines.flow.Flow
 
 interface WhatsNewRepository {

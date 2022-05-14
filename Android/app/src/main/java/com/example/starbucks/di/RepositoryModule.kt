@@ -1,13 +1,11 @@
 package com.example.starbucks.di
 
-import com.example.starbucks.data.datasource.WhatsNewDataSource
-import com.example.starbucks.data.datasource.WhatsNewDataSourceImpl
-import com.example.starbucks.data.repository.WhatsNewRepositoryImpl
+import com.example.starbucks.data.repository.*
 import org.koin.dsl.module
 
-val whatsNewRepositoryModule = module {
+val repositoryModule = module {
 
-    single<WhatsNewDataSource> { WhatsNewDataSourceImpl(get()) }
-
-    factory { WhatsNewRepositoryImpl(get()) }
+    single<WhatsNewRepository> { WhatsNewRepositoryImpl(get()) }
+    single<HomeRepository> { HomeRepositoryImpl(get()) }
+    single<EventDialogRepository> { EventDialogRepositoryImpl(get()) }
 }

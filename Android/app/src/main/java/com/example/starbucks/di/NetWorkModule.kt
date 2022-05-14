@@ -1,8 +1,9 @@
-@file:OptIn(ExperimentalSerializationApi::class)
 
 package com.example.starbucks.di
 
-import com.example.starbucks.data.datasource.WhatsNewDataSourceImpl
+import com.example.starbucks.network.DetailApi
+import com.example.starbucks.network.EventApi
+import com.example.starbucks.network.HomeApi
 import com.example.starbucks.network.WhatsNewApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -12,11 +13,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://www.starbucks.co.kr/"
 
-private const val HOME_URL = "https://api.codesquad.kr/starbuckst/"
+private const val HOME_URL = "http://louie-03.com/"
+
+private const val TEMP_URL = "https://public.codesquad.kr/"
 
 private val json = Json {
     isLenient = true // Jso\n 큰따옴표 느슨하게 체크.
@@ -24,27 +26,52 @@ private val json = Json {
     coerceInputValues = true // "null" 이 들어간경우 default Argument 값으로 대체
 }
 
-val whatsNewApiNetWorkModule = module {
+private val logger = HttpLoggingInterceptor().apply {
+    level = HttpLoggingInterceptor.Level.BODY
+}
 
-    val logger = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
+private val okHttpClient = OkHttpClient.Builder()
+    .addInterceptor(logger)
+    .build()
+
+private val contentType = "application/json".toMediaType()
+
+val netWorkModule = module {
 
     single {
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(logger)
-            .build()
-
-        val contentType = "application/json".toMediaType()
-
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
-//            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(WhatsNewApi::class.java)
     }
 
-    factory { WhatsNewDataSourceImpl(get()) }
+    single {
+        Retrofit.Builder()
+            .baseUrl(HOME_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(HomeApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(DetailApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl(TEMP_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(EventApi::class.java)
+    }
+
 }
