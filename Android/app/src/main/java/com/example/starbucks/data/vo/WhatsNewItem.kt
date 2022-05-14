@@ -1,4 +1,4 @@
-package com.example.starbucks.data
+package com.example.starbucks.data.vo
 
 data class WhatsNewItem(
     val title: String,

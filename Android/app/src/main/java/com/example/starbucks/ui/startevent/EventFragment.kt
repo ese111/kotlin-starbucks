@@ -1,4 +1,4 @@
-package com.example.starbucks.ui
+package com.example.starbucks.ui.startevent
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.example.starbucks.databinding.FragmentEventDialogBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,6 +20,8 @@ class EventFragment: DialogFragment() {
     private val binding: FragmentEventDialogBinding by lazy {
         FragmentEventDialogBinding.inflate(layoutInflater)
     }
+
+    private val viewModel: EventDialogViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +50,10 @@ class EventFragment: DialogFragment() {
             sharedPreferencesEditor.putString("Day", date)
             sharedPreferencesEditor.apply()
             dismiss()
+        }
+
+        viewModel.info.observe(viewLifecycleOwner) {
+            binding.item = it
         }
     }
 

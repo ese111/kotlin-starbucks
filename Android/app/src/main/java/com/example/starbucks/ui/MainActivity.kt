@@ -5,7 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.starbucks.databinding.ActivityMainBinding
+import com.example.starbucks.ui.startevent.EventDialogViewModel
+import com.example.starbucks.ui.startevent.EventFragment
 import com.example.starbucks.ui.whatsnew.WhatsNewActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
