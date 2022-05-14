@@ -1,6 +1,5 @@
 package com.example.starbucks.common
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableString
@@ -8,8 +7,6 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import java.text.SimpleDateFormat
-import java.util.*
 
 @BindingAdapter("labelColor")
 fun setLabelColor(textView: TextView, user: String) {
