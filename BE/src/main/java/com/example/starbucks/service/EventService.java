@@ -25,8 +25,8 @@ public class EventService {
 			.collect(Collectors.toList());
 	}
 
-	public MainEventResponse findMainEvent(boolean param) {
-		return new MainEventResponse(eventRepository.findByMain(param));
+	public MainEventResponse findMainEvent() {
+		return new MainEventResponse(eventRepository.findByMainIsTrue());
 	}
 
 	public List<EventResponse> findAllBySort(String sortBy, String orderBy) {

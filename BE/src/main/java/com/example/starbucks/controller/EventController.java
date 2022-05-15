@@ -21,8 +21,8 @@ public class EventController {
 	}
 
 	@GetMapping("/events/main")
-	public MainEventResponse getMainEvent(@RequestParam("main") boolean param) {
-		return eventService.findMainEvent(param);
+	public MainEventResponse getMainEvent() {
+		return eventService.findMainEvent();
 	}
 
 	@GetMapping("/events")
