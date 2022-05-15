@@ -7,7 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.example.starbucks.config.RestDocsConfiguration;
-import com.example.starbucks.dto.EventOngoingResponse;
+import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.service.EventService;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -37,11 +37,11 @@ class EventControllerTest {
     void 현재_진행중인_이벤트를_모두_조회한다() throws Exception {
         given(productService.findOngoingEvents())
             .willReturn(List.of(
-                new EventOngoingResponse(1L, "http://~~~", "제목 1", "설명11111"),
-                new EventOngoingResponse(2L, "http://~~~", "제목 2", "설명22222"),
-                new EventOngoingResponse(3L, "http://~~~", "제목 3", "설명33333"),
-                new EventOngoingResponse(4L, "http://~~~", "제목 4", "설명44444"),
-                new EventOngoingResponse(5L, "http://~~~", "제목 5", "설명55555")));
+                new EventResponse(1L, "http://~~~", "제목 1", "설명11111"),
+                new EventResponse(2L, "http://~~~", "제목 2", "설명22222"),
+                new EventResponse(3L, "http://~~~", "제목 3", "설명33333"),
+                new EventResponse(4L, "http://~~~", "제목 4", "설명44444"),
+                new EventResponse(5L, "http://~~~", "제목 5", "설명55555")));
 
         ResultActions perform = mockMvc.perform(get("/events/ongoing"));
 
@@ -51,4 +51,22 @@ class EventControllerTest {
             .andDo(document("event-ongoing"));
     }
 
+    @Test
+    void 이벤트_시작_날짜를_내림차순으로_정렬한_이벤트를_모두_조회한다() throws Exception {
+        given(productService.findAllBySort("start-date-time", "desc"))
+            .willReturn(List.of(
+                new EventResponse(1L, "http://~~~", "제목 1", "설명11111"),
+                new EventResponse(2L, "http://~~~", "제목 2", "설명22222"),
+                new EventResponse(3L, "http://~~~", "제목 3", "설명33333"),
+                new EventResponse(4L, "http://~~~", "제목 4", "설명44444"),
+                new EventResponse(5L, "http://~~~", "제목 5", "설명55555")));
+
+        ResultActions perform = mockMvc.perform(
+            get("/events?sort-by=start-date-time&order-by=desc"));
+
+        perform
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andDo(document("event-sort"));
+    }
 }

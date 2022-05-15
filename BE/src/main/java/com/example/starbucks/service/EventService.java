@@ -1,13 +1,13 @@
 package com.example.starbucks.service;
 
-import com.example.starbucks.domain.Event;
-import com.example.starbucks.dto.EventOngoingResponse;
 import com.example.starbucks.dto.EventResponse;
+import com.example.starbucks.dto.MainEventResponse;
 import com.example.starbucks.repository.EventRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,15 +18,25 @@ public class EventService {
 
 	private final EventRepository eventRepository;
 
-	public List<EventOngoingResponse> findOngoingEvents() {
+	public List<EventResponse> findOngoingEvents() {
 		return eventRepository.findByCurrentDateTimeIsBetweenStartDateTimeAndEndDateTime(
 				LocalDateTime.now())
-			.stream().map(EventOngoingResponse::new)
+			.stream().map(EventResponse::new)
 			.collect(Collectors.toList());
 	}
 
-	public EventResponse findMainEvent(boolean param) {
-		return new EventResponse(eventRepository.findByMain(param));
+	public MainEventResponse findMainEvent(boolean param) {
+		return new MainEventResponse(eventRepository.findByMain(param));
 	}
 
+	public List<EventResponse> findAllBySort(String sortBy, String orderBy) {
+		Sort sort = Sort.by(sortBy);
+		if ("desc".equals(orderBy)) {
+			sort = sort.descending();
+		}
+
+		return eventRepository.findAll(sort)
+			.stream().map(EventResponse::new)
+			.collect(Collectors.toList());
+	}
 }

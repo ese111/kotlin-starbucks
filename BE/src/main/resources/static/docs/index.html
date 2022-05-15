@@ -447,8 +447,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_랜덤_상품_조회">랜덤 상품 조회</h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="_request">Request</h4>
+<div class="sect2">
+<h3 id="_request">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
@@ -456,8 +456,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_response">Response</h4>
+<div class="sect2">
+<h3 id="_response">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -493,8 +493,8 @@ Content-Length: 392
 <div class="sect1">
 <h2 id="_진행중인_이벤트_조회">진행중인 이벤트 조회</h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="_request_2">Request</h4>
+<div class="sect2">
+<h3 id="_request_2">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /events/ongoing HTTP/1.1
@@ -502,8 +502,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_response_2">Response</h4>
+<div class="sect2">
+<h3 id="_response_2">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -542,10 +542,61 @@ Content-Length: 537
 </div>
 </div>
 <div class="sect1">
-<h2 id="_인기_상품_조회">인기 상품 조회</h2>
+<h2 id="_이벤트_시작_날짜_내림차순으로_조회">이벤트 시작 날짜 내림차순으로 조회</h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="_request_3">Request</h4>
+<div class="sect2">
+<h3 id="_request_3">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /events/ongoing HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_3">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 537
+
+[ {
+  "id" : 1,
+  "imageUrl" : "http://~~~",
+  "title" : "제목 1",
+  "description" : "설명11111"
+}, {
+  "id" : 2,
+  "imageUrl" : "http://~~~",
+  "title" : "제목 2",
+  "description" : "설명22222"
+}, {
+  "id" : 3,
+  "imageUrl" : "http://~~~",
+  "title" : "제목 3",
+  "description" : "설명33333"
+}, {
+  "id" : 4,
+  "imageUrl" : "http://~~~",
+  "title" : "제목 4",
+  "description" : "설명44444"
+}, {
+  "id" : 5,
+  "imageUrl" : "http://~~~",
+  "title" : "제목 5",
+  "description" : "설명55555"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_주문량이_높은_순서대로_상품_5개_조회">주문량이 높은 순서대로 상품 5개 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_4">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products?sort-by=orderCount&amp;order-by=desc HTTP/1.1
@@ -553,8 +604,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_response_3">Response</h4>
+<div class="sect2">
+<h3 id="_response_4">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -590,8 +641,8 @@ Content-Length: 448
 <div class="sect1">
 <h2 id="_특정_상품_조회">특정 상품 조회</h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="_request_4">Request</h4>
+<div class="sect2">
+<h3 id="_request_5">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/1 HTTP/1.1
@@ -599,8 +650,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_response_4">Response</h4>
+<div class="sect2">
+<h3 id="_response_5">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -626,11 +677,55 @@ Content-Length: 285
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_메인_카테고리_포함된_서브_카테고리_조회">메인 카테고리 포함된 서브 카테고리 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_6">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /categories?category-type=DRINK HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_6">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 443
+
+{
+  "categoryTypes" : [ "DRINK", "FOOD", "GOODS" ],
+  "categories" : [ {
+    "id" : 1,
+    "koreanName" : "콜드브루",
+    "englishName" : "Cold brew",
+    "imageUrl" : "image1"
+  }, {
+    "id" : 1,
+    "koreanName" : "에스프레소",
+    "englishName" : "Espresso",
+    "imageUrl" : "image2"
+  }, {
+    "id" : 1,
+    "koreanName" : "프라푸치노",
+    "englishName" : "Frappuccino",
+    "imageUrl" : "image3"
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-13 09:42:40 +0900
+Last updated 2022-05-14 10:45:34 +0900
 </div>
 </div>
 </body>
