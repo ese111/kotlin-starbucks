@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 public class MainEventResponse {
 
     private Long id;
+    private String title;
+    private String target;
+    private String eventProductName;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
     private String description;
@@ -21,6 +24,9 @@ public class MainEventResponse {
 
     public MainEventResponse(Event event) {
         this.id = event.getId();
+        this.title = event.getTitle();
+        this.target = event.getTarget();
+        this.eventProductName = event.getEventProductName();
         this.startDateTime = event.getStartDateTime();
         this.endDateTime = event.getEndDateTime();
         this.description = event.getDescription();
