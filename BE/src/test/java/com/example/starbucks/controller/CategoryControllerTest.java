@@ -26,31 +26,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @Import(RestDocsConfiguration.class)
 @AutoConfigureRestDocs
-@WebMvcTest(OrderController.class)
+@WebMvcTest(CategoryController.class)
 @DisplayName("OrderController 클래스")
-class OrderControllerTest {
+class CategoryControllerTest {
 
-    @Autowired
-    MockMvc mockMvc;
+	@Autowired
+	MockMvc mockMvc;
 
-    @MockBean
-    OrderService orderService;
+	@MockBean
+	CategoryService categoryService;
 
-    @Test
-    void 특정_카테고리의_서브_카테고리를_조회한다() throws Exception {
-        //given
-        CategoryType[] categoryTypes = CategoryType.values();
+	@Test
+	void 특정_카테고리의_서브_카테고리를_조회한다() throws Exception {
+		//given
+		CategoryType[] categoryTypes = CategoryType.values();
 
-        given(orderService.getSubCategories(CategoryType.DRINK))
-                .willReturn(
-                        new CategoryTypeListResponse(categoryTypes,
-                        List.of(new CategoryResponse(1L, "콜드브루", "Cold brew", "image1"),
-                                new CategoryResponse(1L, "에스프레소", "Espresso", "image2"),
-                                new CategoryResponse(1L, "프라푸치노", "Frappuccino", "image3")
-                                )));
+		given(categoryService.getSubCategories(CategoryType.DRINK))
+			.willReturn(
+				new CategoryTypeListResponse(categoryTypes,
+					List.of(new CategoryResponse(1L, "콜드브루", "Cold brew", "image1"),
+						new CategoryResponse(1L, "에스프레소", "Espresso", "image2"),
+						new CategoryResponse(1L, "프라푸치노", "Frappuccino", "image3")
+					)));
 
-        //when
-        ResultActions actions = mockMvc.perform(get("/categories?category-type=DRINK"));
+		//when
+		ResultActions actions = mockMvc.perform(get("/categories?category-type=DRINK"));
 
         //then
         actions

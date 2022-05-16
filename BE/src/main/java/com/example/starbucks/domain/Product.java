@@ -13,8 +13,8 @@ public class Product {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String koreanTitle;
-    private String englishTitle;
+    private String koreanName;
+    private String englishName;
     private String description;
     private int price;
     private int calorie;
