@@ -20,4 +20,9 @@ public class CategoryController {
     public CategoryTypeListResponse getSubCategories(@RequestParam("category-type") String categoryType) {
         return categoryService.getSubCategories(CategoryType.valueOf(categoryType));
     }
+
+    @GetMapping("/categories/{id}")
+    public CategoryWithProductResponse getCategoryWithProducts(@PathVariable Long id) {
+        return categoryService.findByIdWithProduct(id);
+    }
 }

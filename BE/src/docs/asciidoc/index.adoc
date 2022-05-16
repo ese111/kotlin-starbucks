@@ -52,3 +52,11 @@ include::{snippets}/get-categories/http-request.adoc[]
 === Response
 include::{snippets}/get-categories/http-response.adoc[]
 
+== 특정 카테고리의 이름과 관련된 상품 조회
+
+=== Request
+include::{snippets}/get-category-product/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-category-product/http-response.adoc[]
+

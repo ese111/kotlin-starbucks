@@ -27,4 +27,7 @@ public class CategoryService {
         return CategoryTypeListResponse.of(categoryTypes, categories);
     }
 
+    public CategoryWithProductResponse findByIdWithProduct(Long id) {
+        return null;
+    }
 }
