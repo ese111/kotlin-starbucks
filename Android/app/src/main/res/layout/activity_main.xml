@@ -49,6 +49,7 @@
             android:background="@color/grey_starbucks"
             app:itemIconTint="@drawable/bottom_icon"
             app:itemTextColor="@drawable/bottom_icon"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
