@@ -9,7 +9,7 @@ public class Favorite {
     private Long id;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
     private String username;

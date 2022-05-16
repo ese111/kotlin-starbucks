@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.ResultActions;
 @Import(RestDocsConfiguration.class)
 @AutoConfigureRestDocs
 @WebMvcTest(CategoryController.class)
-@DisplayName("OrderController 클래스")
+@DisplayName("CategoryController 클래스")
 class CategoryControllerTest {
 
 	@Autowired

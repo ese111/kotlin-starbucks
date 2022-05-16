@@ -1,5 +1,6 @@
 package com.example.starbucks.service;
 
+import com.example.starbucks.domain.Category;
 import com.example.starbucks.domain.CategoryType;
 import com.example.starbucks.dto.CategoryTypeListResponse;
 import com.example.starbucks.dto.CategoryResponse;
@@ -28,6 +29,7 @@ public class CategoryService {
     }
 
     public CategoryWithProductResponse findByIdWithProduct(Long id) {
-        return null;
+        Category category = categoryRepository.findById(id).orElseThrow();
+        return new CategoryWithProductResponse(category);
     }
 }

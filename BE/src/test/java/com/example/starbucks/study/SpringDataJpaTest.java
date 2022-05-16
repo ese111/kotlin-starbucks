@@ -19,12 +19,12 @@ class SpringDataJpaTest {
 
 	@Test
 	void Sort_객체를_생성할_때_엔티티의_필드명을_넣어줘야_한다() {
-		productRepository.findAll(Sort.by("koreanTitle"));
+		productRepository.findAll(Sort.by("koreanName"));
 	}
 
 	@Test
 	void Sort_객체를_생성할_때_데이터베이스_필드명을_넣어준다면_에러가_발생한다() {
-		assertThatThrownBy(() -> productRepository.findAll(Sort.by("korean_title")))
+		assertThatThrownBy(() -> productRepository.findAll(Sort.by("korean_name")))
 			.isInstanceOf(PropertyReferenceException.class);
 	}
 }
