@@ -33,7 +33,7 @@ class EventPageTest {
     }
 
     @Test
-    fun firstStartApp() {
+    fun 초기_이벤트_생성_확인_테스트() {
         activityScenario.scenario.recreate()
         onView(withId(R.id.df_event)).check(matches(isDisplayed()))
     }

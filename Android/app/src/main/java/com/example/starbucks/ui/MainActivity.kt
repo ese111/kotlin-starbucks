@@ -21,11 +21,6 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val navControl: NavController by lazy {
-        val nav = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
-        nav.findNavController()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -37,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         setClickWhatsNew()
 
+        val nav = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
+        val navControl = nav.findNavController()
         binding.bottomNavigation.setupWithNavController(navControl)
     }
 

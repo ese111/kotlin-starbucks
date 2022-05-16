@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/home">
+
         <fragment
             android:id="@+id/home"
             android:name="com.example.starbucks.ui.home.HomeFragment"
             android:label="fragment_home"
             tools:layout="@layout/fragment_home" />
+
         <fragment
             android:id="@+id/pay"
             android:name="com.example.starbucks.ui.pay.PayFragment"
@@ -20,6 +22,7 @@
             android:name="com.example.starbucks.ui.favorite.FavoriteFragment"
             android:label="fragment_favorite"
             tools:layout="@layout/fragment_favorite" />
+
         <fragment
             android:id="@+id/order"
             android:name="com.example.starbucks.ui.order.OderFragment"

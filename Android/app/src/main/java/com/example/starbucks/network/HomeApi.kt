@@ -2,6 +2,7 @@ package com.example.starbucks.network
 
 import com.example.starbucks.dto.*
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface HomeApi {
 
@@ -16,5 +17,10 @@ interface HomeApi {
 
     @GET("/products?sort-by=price&order-by=desc")
     suspend fun getPopularMenu(): List<PopularMenuDTO>
+
+    @GET("/categories")
+    suspend fun getCategory(
+        @Query("category-type") type: String
+    ): CategoryMenuDTO
 
 }

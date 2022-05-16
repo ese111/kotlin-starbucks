@@ -17,7 +17,7 @@ fun applyImageAdapter(imageView: ImageView, image: String) {
 
 @BindingAdapter("circleImage")
 fun circleCropImage(imageView: ImageView, image: String) {
-    if(image == "") {
+    if(image == "imageurl" || image == "") {
         imageView.load(R.drawable.ic_baseline_image_24) {
             transformations(CircleCropTransformation())
         }
