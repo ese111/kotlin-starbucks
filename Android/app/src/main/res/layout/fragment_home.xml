@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment"
-        android:id="@+id/homeFragment">
+        android:id="@+id/home">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_home"

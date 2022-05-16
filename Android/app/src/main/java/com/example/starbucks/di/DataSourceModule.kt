@@ -8,4 +8,6 @@ val dataSourceModule = module {
     single<WhatsNewDataSource> { WhatsNewDataSourceImpl(get()) }
     single<HomeDataSource> { HomeDataSourceImpl(get()) }
     single<EventDialogDataSource> { EventDialogDataSourceImpl(get()) }
+    single<CategoryDataSource>{ CategoryDataSourceImpl(get()) }
+
 }

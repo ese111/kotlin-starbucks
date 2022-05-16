@@ -6,7 +6,6 @@ import androidx.test.espresso.PerformException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -32,7 +31,7 @@ class TabTest {
         onView(withId(R.id.btn_event_close)).perform(click())
         onView(withId(R.id.order)).perform(click())
         onView(withId(R.id.tl_order_tab)).perform(selectTabAtPosition(0))
-        onView(withId(R.id.drinkFragment)).check(matches(isDisplayed()))
+        onView(withId(R.id.categoryFragment)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -40,7 +39,7 @@ class TabTest {
         onView(withId(R.id.btn_event_close)).perform(click())
         onView(withId(R.id.order)).perform(click())
         onView(withId(R.id.tl_order_tab)).perform(click())
-        onView(withId(R.id.foodFragment)).check(matches(isDisplayed()))
+        onView(withId(R.id.categoryFragment)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -48,9 +47,9 @@ class TabTest {
         onView(withId(R.id.btn_event_close)).perform(click())
         onView(withId(R.id.order)).perform(click())
         onView(withId(R.id.tl_order_tab)).perform(selectTabAtPosition(2))
-        onView(withId(R.id.itemFragment)).check(matches(isDisplayed()))
+        onView(withId(R.id.categoryFragment)).check(matches(isDisplayed()))
     }
-    
+
     private fun selectTabAtPosition(tabIndex: Int): ViewAction {
         return object : ViewAction {
             override fun getDescription() = "with tab at index $tabIndex"

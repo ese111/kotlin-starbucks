@@ -8,4 +8,6 @@ val repositoryModule = module {
     single<WhatsNewRepository> { WhatsNewRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<EventDialogRepository> { EventDialogRepositoryImpl(get()) }
+    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
+
 }
