@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="com.example.starbucks.data.vo.DetailCategory" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_title_line_kor"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_title_line_eng"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_price_line"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7"/>
+        
+        <ImageView
+            android:id="@+id/iv_menu_image_in_category"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintWidth_percent="0.35"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            circleImage="@{item.imageUrl}"
+            tools:src="@drawable/ic_baseline_image_24"
+            android:contentDescription="@string/image" />
+        
+        <TextView
+            android:id="@+id/tv_menu_title_kor_in_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/gl_vertical"
+            app:layout_constraintBottom_toTopOf="@id/gl_title_line_kor"
+            android:textColor="@color/black"
+            android:text="@{item.koreanName}"
+            tools:text="바닐라 플랫 화이트"/>
+
+        <TextView
+            android:id="@+id/tv_best_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/gl_title_line_kor"
+            app:layout_constraintStart_toEndOf="@id/tv_menu_title_kor_in_category"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/badge"
+            android:visibility="@{item.best ? View.GONE : View.VISIBLE}"
+            android:text="@string/badge"/>
+
+        <TextView
+            android:id="@+id/tv_menu_title_eng_in_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/gl_vertical"
+            app:layout_constraintBottom_toTopOf="@id/gl_title_line_eng"
+            android:text="@{item.englishName}"
+            tools:text="vanilla bean cafe latte"/>
+
+        <TextView
+            android:id="@+id/tv_menu_price_in_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/gl_vertical"
+            app:layout_constraintBottom_toTopOf="@id/gl_price_line"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="@{item.price}"
+            tools:text="5,600원"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

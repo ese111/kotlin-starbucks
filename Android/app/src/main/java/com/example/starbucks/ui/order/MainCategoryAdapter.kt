@@ -8,25 +8,40 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starbucks.data.vo.CategoryMenuData
 import com.example.starbucks.databinding.ItemMainCategoryBinding
 
-class MainCategoryAdapter: ListAdapter<CategoryMenuData, MainCategoryAdapter.MainCategoryViewHolder>(MainCategoryDiffUtil) {
+class MainCategoryAdapter(private val listener: CategoryClickListener) :
+    ListAdapter<CategoryMenuData, MainCategoryAdapter.MainCategoryViewHolder>(MainCategoryDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainCategoryViewHolder {
-        return MainCategoryViewHolder(ItemMainCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MainCategoryViewHolder(
+            ItemMainCategoryBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MainCategoryViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class MainCategoryViewHolder(private val binding: ItemMainCategoryBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class MainCategoryViewHolder(private val binding: ItemMainCategoryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: CategoryMenuData) {
             binding.item = data
+            setOnClickViewHolder(data.id)
+        }
+
+        private fun setOnClickViewHolder(type: Int) {
+            itemView.setOnClickListener {
+                listener.moveDetailPage(type)
+            }
         }
 
     }
 
-    private object MainCategoryDiffUtil: DiffUtil.ItemCallback<CategoryMenuData>() {
+    private object MainCategoryDiffUtil : DiffUtil.ItemCallback<CategoryMenuData>() {
 
         override fun areItemsTheSame(
             oldItem: CategoryMenuData,

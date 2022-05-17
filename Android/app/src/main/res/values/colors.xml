@@ -10,4 +10,5 @@
     <color name="green_starbucks">#036635</color>
     <color name="grey_starbucks">#BDBDBD</color>
     <color name="navigation_icon">#808080</color>
+    <color name="badge">#FF3333</color>
 </resources>

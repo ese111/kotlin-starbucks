@@ -1,10 +1,7 @@
 
 package com.example.starbucks.di
 
-import com.example.starbucks.network.DetailApi
-import com.example.starbucks.network.EventApi
-import com.example.starbucks.network.HomeApi
-import com.example.starbucks.network.WhatsNewApi
+import com.example.starbucks.network.*
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -40,7 +37,7 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
@@ -72,6 +69,15 @@ val netWorkModule = module {
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(EventApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl(HOME_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(OrderApi::class.java)
     }
 
 }

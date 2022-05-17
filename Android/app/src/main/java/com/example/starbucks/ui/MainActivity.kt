@@ -30,21 +30,11 @@ class MainActivity : AppCompatActivity() {
             dialog.show(supportFragmentManager, "EventDialog")
         }
 
-        setClickWhatsNew()
-
         val nav = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         val navControl = nav.findNavController()
         binding.bottomNavigation.setupWithNavController(navControl)
     }
 
-
-
-    private fun setClickWhatsNew() {
-        binding.topAppBar.setOnClickListener {
-            val intent = Intent(this, WhatsNewActivity::class.java)
-            startActivity(intent)
-        }
-    }
 
     private fun checkClosedEventPopup(): Boolean {
         val currentTime = System.currentTimeMillis()

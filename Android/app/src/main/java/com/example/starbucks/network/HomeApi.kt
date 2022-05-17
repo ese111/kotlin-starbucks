@@ -18,9 +18,4 @@ interface HomeApi {
     @GET("/products?sort-by=price&order-by=desc")
     suspend fun getPopularMenu(): List<PopularMenuDTO>
 
-    @GET("/categories")
-    suspend fun getCategory(
-        @Query("category-type") type: String
-    ): CategoryMenuDTO
-
 }

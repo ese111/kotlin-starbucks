@@ -2,6 +2,8 @@ package com.example.starbucks.data.repository
 
 import com.example.starbucks.data.datasource.CategoryDataSource
 import com.example.starbucks.data.vo.CategoryMenuData
+import com.example.starbucks.data.vo.DetailCategory
+import com.example.starbucks.dto.toDetailCategory
 import com.example.starbucks.dto.toMenuData
 
 class CategoryRepositoryImpl(private val dataSource: CategoryDataSource) : CategoryRepository {
@@ -16,4 +18,13 @@ class CategoryRepositoryImpl(private val dataSource: CategoryDataSource) : Categ
         return list
     }
 
+    override suspend fun getDetailCategory(type: Int): List<DetailCategory> {
+        var list = listOf<DetailCategory>()
+
+        dataSource.getDetailCategory(type).collect{
+            list = it.toDetailCategory()
+        }
+
+        return list
+    }
 }
