@@ -20,6 +20,9 @@ public class ProductResponse {
 		this.koreanName = product.getKoreanName();
 		this.englishName = product.getEnglishName();
 		this.price = product.getPrice();
-//		this.best = product.;
+	}
+
+	public void setBest(boolean best) {
+		this.best = best;
 	}
 }
