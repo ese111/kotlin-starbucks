@@ -2,6 +2,7 @@ package com.example.starbucks.service;
 
 import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.dto.MainEventResponse;
+import com.example.starbucks.dto.PopupEventResponse;
 import com.example.starbucks.repository.EventRepository;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -27,6 +28,10 @@ public class EventService {
 
 	public MainEventResponse findMainEvent() {
 		return new MainEventResponse(eventRepository.findByMainIsTrue());
+	}
+
+	public PopupEventResponse findPopUpEvent() {
+		return new PopupEventResponse(eventRepository.findByPopUpIsTrue());
 	}
 
 	public List<EventResponse> findAllBySort(String sortBy, String orderBy) {

@@ -2,6 +2,7 @@ package com.example.starbucks.controller;
 
 import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.dto.MainEventResponse;
+import com.example.starbucks.dto.PopupEventResponse;
 import com.example.starbucks.service.EventService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,11 @@ public class EventController {
 	@GetMapping("/events/main")
 	public MainEventResponse getMainEvent() {
 		return eventService.findMainEvent();
+	}
+
+	@GetMapping("/events/popup")
+	public PopupEventResponse getPopupEvent() {
+		return eventService.findPopUpEvent();
 	}
 
 	@GetMapping("/events")
