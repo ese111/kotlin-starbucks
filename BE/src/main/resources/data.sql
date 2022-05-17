@@ -96,16 +96,16 @@ VALUES
     (5, 21);
 
 INSERT INTO event
-    (title, description, start_date_time, end_date_time, main, event_product_name, target, image_url)
+    (title, description, start_date_time, end_date_time, main, event_product_name, target, image_url, pop_up)
 VALUES
     ('스타벅스트', '기간 내 오후 2시~6시 등록된 카드로 주문시 영수증당 별 추가 증정',
-     '2021-10-11', '2021-10-22', true, '스타벅스트 딜리버리 음료', '스타벅스트 리워드 회원', 'https://s3.ap-northeast-2.amazonaws.com/lucas-image.codesquad.kr/1627033273796event-bg.png'),
+     '2021-10-11', '2021-10-22', false, '스타벅스트 딜리버리 음료', '스타벅스트 리워드 회원', 'https://s3.ap-northeast-2.amazonaws.com/lucas-image.codesquad.kr/1627033273796event-bg.png', true),
     ('22 서머 e-프리퀀시 이벤트 안내', '다가올 여행의 모양은 모두 다르지만, 즐거운 여행 속 \'나\'에게 기대감과 즐거움을 주는 스타벅스의 여름 이야기.',
-     '2022-05-01', '2023-05-01', false, '아이스 아메리카노', '모든 스타벅스 회원', null),
+     '2022-05-01', '2023-05-01', true, '아이스 아메리카노', '모든 스타벅스 회원', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20211231080741168.jpg', false),
     ('만원당 별 적립 이벤트', '회원 계정에 등록된 스타벅스 카드로 결제 시, 1만원당 별 1개를 즉시 추가로 드립니다!',
-     '2022-01-01', '2023-12-31', false, '모든 상품', '스타벅스 리워드 전 회원', null),
+     '2022-01-01', '2023-12-31', false, '모든 상품', '스타벅스 리워드 전 회원', null, false),
     ('감사의 달 e-Gift 선물하기 이벤트', '스타벅스 e-Gift와 함께 고마운 마음을 전해 보세요!',
-     '2022-04-01', '2022-05-01', false, '모든 상품', '모든 스타벅스 회원', null),
+     '2022-04-01', '2022-05-01', false, '모든 상품', '모든 스타벅스 회원', null, false),
     ('스타벅스 현대카드 5월 한정 혜택', '별처럼 쏟아지는 선물같은 혜택 스타벅스 현대카드가 준비했어요!',
-     '2023-05-01', '2023-06-01', false, '프라푸치노', '모든 스타벅스 회원', null);
+     '2023-05-01', '2023-06-01', false, '프라푸치노', '모든 스타벅스 회원', null, false);
 

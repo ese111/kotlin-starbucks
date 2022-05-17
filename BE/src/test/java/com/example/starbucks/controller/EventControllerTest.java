@@ -11,7 +11,6 @@ import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.dto.MainEventResponse;
 import com.example.starbucks.service.EventService;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -73,21 +72,17 @@ class EventControllerTest {
             .andDo(document("event-sort"));
     }
 
-//    @Test
-//    void 메인_이벤트를_조회한다() throws Exception {
-//        LocalDateTime startDate = LocalDateTime.of(2021, 10, 11, 00, 00);
-//        LocalDateTime endDate = LocalDateTime.of(2021, 10, 22, 00, 00);
-//
-//        given(eventService.findMainEvent())
-//                .willReturn(new MainEventResponse(1L, '스타벅스트', '스타벅스트 리워드 회원', '스타벅스트 딜리버리 음료',
-//                        startDate, endDate, '기간 내 오후 2시~6시 등록된 카드로 주문시 영수증당 별 추가 증정',
-//                        'https://s3.ap-northeast-2.amazonaws.com/lucas-image.codesquad.kr/1627033273796event-bg.png'));
-//
-//        ResultActions perform = mockMvc.perform(get("events/main"));
-//
-//        perform
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-//                .andDo(document("main-event"));
-//    }
+    @Test
+    void 메인_이벤트를_조회한다() throws Exception {
+        given(eventService.findMainEvent())
+                .willReturn(new MainEventResponse(
+                        "https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20211231080741168.jpg"));
+
+        ResultActions perform = mockMvc.perform(get("/events/main"));
+
+        perform
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andDo(document("main-event"));
+    }
 }

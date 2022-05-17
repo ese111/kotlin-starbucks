@@ -14,4 +14,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 		@Param("currentDateTime") LocalDateTime currentDateTime);
 
 	Event findByMainIsTrue();
+
+	Event findByPopUpIsTrue();
 }

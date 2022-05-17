@@ -23,4 +23,5 @@ public class Event {
     private String imageUrl;
     private String eventProductName;
     private boolean main;
+    private boolean popUp;
 }
