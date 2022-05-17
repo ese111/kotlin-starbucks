@@ -16,7 +16,7 @@ public class ProductListResponse {
     }
 
     public static ProductListResponse of (Product product) {
-        return new ProductListResponse(product.getId(), product.getKoreanTitle(), product.getImageUrl());
+        return new ProductListResponse(product.getId(), product.getKoreanName(), product.getImageUrl());
     }
 
 }

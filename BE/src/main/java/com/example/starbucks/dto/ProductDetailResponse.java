@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 public class ProductDetailResponse {
     private Long id;
-    private String koreanTitle;
-    private String englishTitle;
+    private String koreanName;
+    private String englishName;
     private String description;
     private int price;
     private int calorie;
@@ -20,10 +20,10 @@ public class ProductDetailResponse {
     private int protein;
     private String imageUrl;
 
-    public ProductDetailResponse(Long id, String koreanTitle, String englishTitle, String description, int price, int calorie, int sugars, int na, int caffeine, int fat, int protein, String imageUrl) {
+    public ProductDetailResponse(Long id, String koreanName, String englishName, String description, int price, int calorie, int sugars, int na, int caffeine, int fat, int protein, String imageUrl) {
         this.id = id;
-        this.koreanTitle = koreanTitle;
-        this.englishTitle = englishTitle;
+        this.koreanName = koreanName;
+        this.englishName = englishName;
         this.description = description;
         this.price = price;
         this.calorie = calorie;
@@ -36,7 +36,7 @@ public class ProductDetailResponse {
     }
 
     public static ProductDetailResponse of (Product product) {
-        return new ProductDetailResponse(product.getId(), product.getKoreanTitle(), product.getEnglishTitle(),
+        return new ProductDetailResponse(product.getId(), product.getKoreanName(), product.getEnglishName(),
                 product.getDescription(), product.getPrice(), product.getCalorie(), product.getSugars(),
                 product.getNa(), product.getCaffeine(), product.getFat(), product.getProtein(), product.getImageUrl());
     }

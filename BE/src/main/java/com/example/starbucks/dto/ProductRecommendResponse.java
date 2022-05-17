@@ -15,6 +15,6 @@ public class ProductRecommendResponse {
     public ProductRecommendResponse(Product product) {
         this.id = product.getId();
         this.imageUrl = product.getImageUrl();
-        this.name = product.getKoreanTitle();
+        this.name = product.getKoreanName();
     }
 }

@@ -1,7 +1,9 @@
 package com.example.starbucks.domain;
 
 import javax.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 public class CategoryProduct {
     @Id
@@ -9,10 +11,10 @@ public class CategoryProduct {
     private Long id;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 }

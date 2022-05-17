@@ -9,10 +9,10 @@ public class EventProduct {
     private Long id;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Event event;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 }

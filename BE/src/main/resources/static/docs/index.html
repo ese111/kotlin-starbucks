@@ -548,7 +548,7 @@ Content-Length: 537
 <h3 id="_request_3">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /events/ongoing HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /events?sort-by=start-date-time&amp;order-by=desc HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -656,12 +656,12 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 285
+Content-Length: 283
 
 {
   "id" : 1,
-  "koreanTitle" : "카페라떼",
-  "englishTitle" : "Caffe Latte",
+  "koreanName" : "카페라떼",
+  "englishName" : "Caffe Latte",
   "description" : "대표적인 카페 라떼",
   "price" : 5000,
   "calorie" : 110,
@@ -721,11 +721,61 @@ Content-Length: 443
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_특정_카테고리의_이름과_관련된_상품_조회">특정 카테고리의 이름과 관련된 상품 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_7">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /categories/1 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_7">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 649
+
+{
+  "categoryName" : "에스프레소",
+  "products" : [ {
+    "id" : 1,
+    "imageUrl" : "http://~~~~ 1",
+    "koreanName" : "바닐라 플랫 화이트 1",
+    "englishName" : "Vanilla Flat White 1",
+    "price" : 5600,
+    "best" : true
+  }, {
+    "id" : 2,
+    "imageUrl" : "http://~~~~ 2",
+    "koreanName" : "바닐라 플랫 화이트 2",
+    "englishName" : "Vanilla Flat White 2",
+    "price" : 6600,
+    "best" : false
+  }, {
+    "id" : 3,
+    "imageUrl" : "http://~~~~ 3",
+    "koreanName" : "바닐라 플랫 화이트 3",
+    "englishName" : "Vanilla Flat White 3",
+    "price" : 7600,
+    "best" : false
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-14 10:45:34 +0900
+Last updated 2022-05-16 16:03:34 +0900
 </div>
 </div>
 </body>
