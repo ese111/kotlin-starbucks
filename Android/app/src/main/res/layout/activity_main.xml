@@ -13,20 +13,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/lo_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="@string/page_title"
-                app:navigationIcon="@drawable/ic_baseline_mail_outline_24" />
-
-        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView
             android:layout_width="0dp"
@@ -36,7 +22,7 @@
             app:defaultNavHost="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lo_appbar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:navGraph="@navigation/nav_graph"
             />

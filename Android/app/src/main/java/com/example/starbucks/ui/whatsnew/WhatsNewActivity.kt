@@ -39,9 +39,9 @@ class WhatsNewActivity: AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            android.R.id.home -> { //toolbar의 back키 눌렀을 때 동작
-                finish();
-                return true;
+            android.R.id.home -> {
+                finish()
+                return true
             }
         }
         return super.onOptionsItemSelected(item)

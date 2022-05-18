@@ -16,6 +16,8 @@
         android:theme="@style/Theme.StarBucks"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.whatsnew.WhatsNewActivity" />
+        <activity android:name=".ui.order.detail.DetailCategoryActivity"/>
+        <activity android:name=".ui.detail.DetailActivity"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

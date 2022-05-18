@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 
 interface WhatsNewApi {
-    @GET("whats_new/newsListAjax.do")
-    suspend fun getWhatsNewList(): WhatsNewDTO
+    @GET("/events?sort-by=startDateTime&order-by=desc")
+    suspend fun getWhatsNewList(): List<WhatsNewDTO>
 }

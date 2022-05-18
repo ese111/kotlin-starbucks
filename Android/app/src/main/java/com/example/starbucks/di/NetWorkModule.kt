@@ -1,10 +1,7 @@
 
 package com.example.starbucks.di
 
-import com.example.starbucks.network.DetailApi
-import com.example.starbucks.network.EventApi
-import com.example.starbucks.network.HomeApi
-import com.example.starbucks.network.WhatsNewApi
+import com.example.starbucks.network.*
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -18,7 +15,6 @@ private const val BASE_URL = "https://www.starbucks.co.kr/"
 
 private const val HOME_URL = "http://louie-03.com/"
 
-private const val TEMP_URL = "https://public.codesquad.kr/"
 
 private val json = Json {
     isLenient = true // Jso\n 큰따옴표 느슨하게 체크.
@@ -40,7 +36,7 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
@@ -67,11 +63,20 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(TEMP_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(EventApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl(HOME_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(OrderApi::class.java)
     }
 
 }

@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.starbucks.R
 import com.example.starbucks.databinding.FragmentOrderBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,11 +33,17 @@ class OderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCategoryData(type[0])
-        childFragmentManager.beginTransaction()
-            .replace(R.id.fcv_order, CategoryFragment()).commit()
+        kotlin.runCatching {
+            viewModel.getCategoryData(type[0])
+        }.onSuccess {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fcv_order, CategoryFragment()).commit()
+        }.onFailure {
+            this.view?.let {
+                    view -> Snackbar.make(view, "정보를 불러오지 못했습니다.", Snackbar.LENGTH_SHORT).show()
+            }
+        }
 
-        Log.e("TAG", "order ${viewModel.hashCode()}")
         setTabMenu()
     }
 

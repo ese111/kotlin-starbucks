@@ -9,5 +9,5 @@ val repositoryModule = module {
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<EventDialogRepository> { EventDialogRepositoryImpl(get()) }
     single<CategoryRepository> { CategoryRepositoryImpl(get()) }
-
+    single<DetailCategoryRepository> { DetailCategoryRepositoryImpl(get()) }
 }
