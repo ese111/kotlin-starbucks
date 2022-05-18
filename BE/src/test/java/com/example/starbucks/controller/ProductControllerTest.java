@@ -69,9 +69,7 @@ class ProductControllerTest {
         //then
         actions
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andDo(document("product-detail"));
-
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
