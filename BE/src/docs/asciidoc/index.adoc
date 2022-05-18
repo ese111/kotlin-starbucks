@@ -31,10 +31,10 @@ include::{snippets}/event-sort/http-response.adoc[]
 == 주문량이 높은 순서대로 상품 5개 조회
 
 === Request
-include::{snippets}/popular-product/http-request.adoc[]
+include::{snippets}/get-product-popular/http-request.adoc[]
 
 === Response
-include::{snippets}/popular-product/http-response.adoc[]
+include::{snippets}/get-product-popular/http-response.adoc[]
 
 == 특정 상품 조회
 
