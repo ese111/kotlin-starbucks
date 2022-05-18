@@ -452,7 +452,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
-Host: localhost:8080</code></pre>
+Accept: application/json
+Host: localhost:58597</code></pre>
 </div>
 </div>
 </div>
@@ -462,28 +463,32 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 392
+Transfer-Encoding: chunked
+Date: Wed, 18 May 2022 06:55:19 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 851
 
 [ {
-  "id" : 1,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품1"
-}, {
-  "id" : 2,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품2"
-}, {
-  "id" : 3,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품3"
-}, {
-  "id" : 4,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품4"
-}, {
   "id" : 5,
-  "imageUrl" : "http://~~~",
-  "name" : "랜덤 상품5"
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg",
+  "name" : "카페 아메리카노"
+}, {
+  "id" : 9,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937947.jpg",
+  "name" : "아이스 카페 아메리카노"
+}, {
+  "id" : 7,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110001099]_20210421161145813.jpg",
+  "name" : "미니 클래식 스콘"
+}, {
+  "id" : 11,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000004119]_20220412083026158.png",
+  "name" : "라벤더 카페 브레베"
+}, {
+  "id" : 17,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168004]_20210415134634879.jpg",
+  "name" : "모카 프라푸치노"
 } ]</code></pre>
 </div>
 </div>
@@ -722,14 +727,15 @@ Content-Length: 443
 </div>
 </div>
 <div class="sect1">
-<h2 id="_특정_카테고리의_이름과_관련된_상품_조회">특정 카테고리의 이름과 관련된 상품 조회</h2>
+<h2 id="_특정_카테고리와_카테고리에_포함된_상품_조회">특정 카테고리와 카테고리에 포함된 상품 조회</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_request_7">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /categories/1 HTTP/1.1
-Host: localhost:8080</code></pre>
+Accept: application/json
+Host: localhost:58597</code></pre>
 </div>
 </div>
 </div>
@@ -739,30 +745,48 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 649
+Transfer-Encoding: chunked
+Date: Wed, 18 May 2022 06:55:15 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 1446
 
 {
-  "categoryName" : "에스프레소",
+  "categoryName" : "콜드 브루",
   "products" : [ {
-    "id" : 1,
-    "imageUrl" : "http://~~~~ 1",
-    "koreanName" : "바닐라 플랫 화이트 1",
-    "englishName" : "Vanilla Flat White 1",
-    "price" : 5600,
+    "id" : 2,
+    "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000038]_20210430113202595.jpg",
+    "koreanName" : "콜드 브루",
+    "englishName" : "Cold brew",
+    "price" : 4900,
     "best" : true
   }, {
-    "id" : 2,
-    "imageUrl" : "http://~~~~ 2",
-    "koreanName" : "바닐라 플랫 화이트 2",
-    "englishName" : "Vanilla Flat White 2",
-    "price" : 6600,
+    "id" : 10,
+    "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000479]_20210426091844065.jpg",
+    "koreanName" : "나이트로 콜드 브루",
+    "englishName" : "Nitro Cold Brew",
+    "price" : 6000,
+    "best" : true
+  }, {
+    "id" : 12,
+    "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg",
+    "koreanName" : "나이트로 바닐라 크림",
+    "englishName" : "Nitro Vanilla Cream",
+    "price" : 5500,
+    "best" : true
+  }, {
+    "id" : 13,
+    "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000487]_20210430112319174.jpg",
+    "koreanName" : "바닐라 크림 콜드 브루",
+    "englishName" : "Vanilla Cream Cold Brew",
+    "price" : 6000,
     "best" : false
   }, {
-    "id" : 3,
-    "imageUrl" : "http://~~~~ 3",
-    "koreanName" : "바닐라 플랫 화이트 3",
-    "englishName" : "Vanilla Flat White 3",
-    "price" : 7600,
+    "id" : 14,
+    "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/08/[9200000003661]_20210819094346334.jpg",
+    "koreanName" : "시그니처 더 블랙 콜드 브루",
+    "englishName" : "Signature The Black Cold Brew",
+    "price" : 5000,
     "best" : false
   } ]
 }</code></pre>
@@ -775,7 +799,7 @@ Content-Length: 649
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-18 15:13:06 +0900
+Last updated 2022-05-18 15:53:12 +0900
 </div>
 </div>
 </body>

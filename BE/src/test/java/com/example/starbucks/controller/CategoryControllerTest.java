@@ -75,7 +75,6 @@ class CategoryControllerTest {
 
 		perform
 			.andExpect(status().isOk())
-			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-			.andDo(document("get-category-product"));
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 }

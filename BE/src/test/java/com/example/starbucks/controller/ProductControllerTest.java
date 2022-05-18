@@ -52,8 +52,7 @@ class ProductControllerTest {
         perform
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$", hasSize(5)))
-            .andDo(document("product-recommend"));
+            .andExpect(jsonPath("$", hasSize(5)));
     }
 
     @Test

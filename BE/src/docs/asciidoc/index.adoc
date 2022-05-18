@@ -7,10 +7,10 @@ endif::[]
 == 랜덤 상품 조회
 
 === Request
-include::{snippets}/product-recommend/http-request.adoc[]
+include::{snippets}/get-product-recommend/http-request.adoc[]
 
 === Response
-include::{snippets}/product-recommend/http-response.adoc[]
+include::{snippets}/get-product-recommend/http-response.adoc[]
 
 == 진행중인 이벤트 조회
 
@@ -52,11 +52,11 @@ include::{snippets}/get-categories/http-request.adoc[]
 === Response
 include::{snippets}/get-categories/http-response.adoc[]
 
-== 특정 카테고리의 이름과 관련된 상품 조회
+== 특정 카테고리와 카테고리에 포함된 상품 조회
 
 === Request
-include::{snippets}/get-category-product/http-request.adoc[]
+include::{snippets}/get-category-with-product/http-request.adoc[]
 
 === Response
-include::{snippets}/get-category-product/http-response.adoc[]
+include::{snippets}/get-category-with-product/http-response.adoc[]
 
