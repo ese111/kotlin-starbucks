@@ -27,7 +27,7 @@ class DetailCategoryActivity : AppCompatActivity(), CategoryClickListener {
         setSupportActionBar(binding.topAppBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = DetailCategoryAdapter()
+        val adapter = DetailCategoryAdapter(this)
 
         binding.rvListInDetailCategory.adapter = adapter
 

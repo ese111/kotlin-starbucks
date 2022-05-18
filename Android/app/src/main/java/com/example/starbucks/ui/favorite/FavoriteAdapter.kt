@@ -9,7 +9,7 @@ import com.example.starbucks.R
 import com.example.starbucks.data.vo.FavoriteMenu
 import com.example.starbucks.databinding.ItemFavoriteBinding
 
-class FavoriteAdapter :
+class FavoriteAdapter(private val remove: (FavoriteMenu) -> (Unit)) :
     ListAdapter<FavoriteMenu, FavoriteAdapter.FavoriteViewHolder>(FavoriteDiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         return FavoriteViewHolder(
@@ -25,14 +25,19 @@ class FavoriteAdapter :
         holder.bind(getItem(position))
     }
 
-    class FavoriteViewHolder(private val binding: ItemFavoriteBinding) :
+    inner class FavoriteViewHolder(private val binding: ItemFavoriteBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: FavoriteMenu) {
-            binding.ivMenuImageInFavorite.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_baseline_image_24))
-            binding.tvTitleInFavoriteKor.text = "아메리카노"
-            binding.tvTitleInFavoriteEng.text = "Americano"
-            binding.tvPriceInFavorite.text = "4,500원"
+            binding.item = data
+            setOnClickHeart(data)
+        }
+
+        private fun setOnClickHeart(data: FavoriteMenu) {
+            binding.cbHeart.setOnClickListener {
+                binding.cbHeart.isChecked = false
+                remove(data)
+            }
         }
     }
 

@@ -10,4 +10,5 @@ val dataSourceModule = module {
     single<EventDialogDataSource> { EventDialogDataSourceImpl(get()) }
     single<CategoryDataSource> { CategoryDataSourceImpl(get()) }
     single<DetailCategoryDataSource> { DetailCategoryDataSourceImpl(get()) }
+    single<DetailDataSource> { DetailDataSourceImpl(get()) }
 }

@@ -1,6 +1,5 @@
 package com.example.starbucks.ui.order.detail
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,8 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starbucks.data.vo.DetailCategory
 import com.example.starbucks.databinding.ItemDetailCategoryBinding
+import com.example.starbucks.ui.order.CategoryClickListener
 
-class DetailCategoryAdapter :
+class DetailCategoryAdapter(private val listener: CategoryClickListener) :
     ListAdapter<DetailCategory, DetailCategoryAdapter.DetailCategoryViewHolder>(
         DetailCategoryDiffUtil
     ) {
@@ -19,14 +19,20 @@ class DetailCategoryAdapter :
 
     override fun onBindViewHolder(holder: DetailCategoryViewHolder, position: Int) {
         holder.bind(getItem(position))
-        Log.d("TAG", "${getItem(position).koreanName}")
     }
 
-    class DetailCategoryViewHolder(private val binding: ItemDetailCategoryBinding) :
+    inner class DetailCategoryViewHolder(private val binding: ItemDetailCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(data: DetailCategory) {
                 binding.item = data
+                setOnClickViewHolder(data.id)
+            }
+
+            private fun setOnClickViewHolder(id: Int) {
+                itemView.setOnClickListener {
+                    listener.moveDetailPage(id)
+                }
             }
     }
 

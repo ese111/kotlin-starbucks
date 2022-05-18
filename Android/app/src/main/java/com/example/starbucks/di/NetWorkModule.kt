@@ -54,7 +54,7 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()

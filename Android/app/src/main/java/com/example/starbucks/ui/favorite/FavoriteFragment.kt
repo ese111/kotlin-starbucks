@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import com.example.starbucks.R
 import com.example.starbucks.data.vo.FavoriteMenu
 import com.example.starbucks.databinding.FragmentFavoriteBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
 
     private val binding: FragmentFavoriteBinding by lazy {
         FragmentFavoriteBinding.inflate(layoutInflater)
     }
+
+    private val viewModel: FavoriteViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,9 +27,12 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = FavoriteAdapter()
+        val adapter = FavoriteAdapter{
+            viewModel.removeFavoriteData(it)
+        }
         binding.rvListInFavorite.adapter = adapter
-        val tmpList = listOf(FavoriteMenu("아메리카노"))
-        adapter.submitList(tmpList)
+        viewModel.favoriteMenu.observe(viewLifecycleOwner){
+            adapter.submitList(it)
+        }
     }
 }
