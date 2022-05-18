@@ -1,21 +1,15 @@
 package com.example.starbucks.controller;
 
-import static org.mockito.BDDMockito.given;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import com.example.starbucks.config.RestDocsConfiguration;
 import com.example.starbucks.dto.EventResponse;
 import com.example.starbucks.dto.MainEventResponse;
+import com.example.starbucks.dto.PopupEventResponse;
 import com.example.starbucks.service.EventService;
-
-import java.util.List;
+import org.jeasy.random.EasyRandom;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
@@ -23,8 +17,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.util.stream.Collectors;
+
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @Import(RestDocsConfiguration.class)
-@AutoConfigureRestDocs
 @WebMvcTest(EventController.class)
 @DisplayName("EventController 클래스")
 class EventControllerTest {
@@ -35,54 +35,60 @@ class EventControllerTest {
     @MockBean
     EventService eventService;
 
+    EasyRandom generator;
+
+    @BeforeEach
+    void setUp(){
+        generator = new EasyRandom();
+    }
+
     @Test
     void 현재_진행중인_이벤트를_모두_조회한다() throws Exception {
         given(eventService.findOngoingEvents())
-            .willReturn(List.of(
-                new EventResponse(1L, "http://~~~", "제목 1", "설명11111"),
-                new EventResponse(2L, "http://~~~", "제목 2", "설명22222"),
-                new EventResponse(3L, "http://~~~", "제목 3", "설명33333"),
-                new EventResponse(4L, "http://~~~", "제목 4", "설명44444"),
-                new EventResponse(5L, "http://~~~", "제목 5", "설명55555")));
+                .willReturn(generator.objects(EventResponse.class, 2).collect(Collectors.toList()));
 
         ResultActions perform = mockMvc.perform(get("/events/ongoing"));
 
         perform
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andDo(document("event-ongoing"));
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
     void 이벤트_시작_날짜를_내림차순으로_정렬한_이벤트를_모두_조회한다() throws Exception {
         given(eventService.findAllBySort("start-date-time", "desc"))
-            .willReturn(List.of(
-                new EventResponse(1L, "http://~~~", "제목 1", "설명11111"),
-                new EventResponse(2L, "http://~~~", "제목 2", "설명22222"),
-                new EventResponse(3L, "http://~~~", "제목 3", "설명33333"),
-                new EventResponse(4L, "http://~~~", "제목 4", "설명44444"),
-                new EventResponse(5L, "http://~~~", "제목 5", "설명55555")));
+                .willReturn(generator.objects(EventResponse.class, 5).collect(Collectors.toList()));
 
         ResultActions perform = mockMvc.perform(
-            get("/events?sort-by=start-date-time&order-by=desc"));
+                get("/events?sort-by=start-date-time&order-by=desc"));
 
         perform
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andDo(document("event-sort"));
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
     void 메인_이벤트를_조회한다() throws Exception {
         given(eventService.findMainEvent())
-                .willReturn(new MainEventResponse(
-                        "https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20211231080741168.jpg"));
+                .willReturn(generator.nextObject(MainEventResponse.class));
 
         ResultActions perform = mockMvc.perform(get("/events/main"));
 
         perform
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andDo(document("main-event"));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
+
+    @Test
+    void 팝업_이벤트를_조회한다() throws Exception {
+        given(eventService.findPopUpEvent())
+                .willReturn(generator.nextObject(PopupEventResponse.class));
+
+        ResultActions perform = mockMvc.perform(get("/events/popup"));
+
+        perform
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
     }
 }
