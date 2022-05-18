@@ -1,7 +1,6 @@
 package com.example.starbucks.dto
 
 import androidx.annotation.Keep
-import com.example.starbucks.common.getItemImage
 import com.example.starbucks.data.vo.WhatsNewItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -1,6 +1,7 @@
 package com.example.starbucks.dto
 
 
+import com.example.starbucks.common.toMoney
 import com.example.starbucks.data.vo.DetailCategory
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -39,7 +40,9 @@ fun DetailCategoryDTO.toDetailCategory(): List<DetailCategory> {
         val image = it.imageUrl.orEmpty()
         val korName = requireNotNull(it.koreanName)
         val price = requireNotNull(it.price)
-        list.add(DetailCategory(best, engName, id, image, korName, price))
+
+        list.add(DetailCategory(best, engName, id, image, korName, price.toMoney()))
     }
+
     return list
 }

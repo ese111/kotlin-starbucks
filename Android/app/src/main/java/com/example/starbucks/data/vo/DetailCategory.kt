@@ -6,5 +6,5 @@ data class DetailCategory(
     val id: Int,
     val imageUrl: String,
     val koreanName: String,
-    val price: Int
+    val price: String
 )

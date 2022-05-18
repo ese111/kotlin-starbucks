@@ -1,5 +1,6 @@
 package com.example.starbucks.ui.order.detail
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -18,6 +19,7 @@ class DetailCategoryAdapter :
 
     override fun onBindViewHolder(holder: DetailCategoryViewHolder, position: Int) {
         holder.bind(getItem(position))
+        Log.d("TAG", "${getItem(position).koreanName}")
     }
 
     class DetailCategoryViewHolder(private val binding: ItemDetailCategoryBinding) :

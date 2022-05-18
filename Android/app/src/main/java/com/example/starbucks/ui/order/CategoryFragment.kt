@@ -38,9 +38,9 @@ class CategoryFragment: Fragment(), CategoryClickListener {
         }
     }
 
-    override fun moveDetailPage(type: Int) {
+    override fun moveDetailPage(id: Int) {
         val intent = Intent(activity, DetailCategoryActivity::class.java)
-        intent.putExtra("type", type)
+        intent.putExtra("id", id)
         startActivity(intent)
     }
 }

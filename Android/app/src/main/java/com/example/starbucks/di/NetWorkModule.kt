@@ -15,7 +15,6 @@ private const val BASE_URL = "https://www.starbucks.co.kr/"
 
 private const val HOME_URL = "http://louie-03.com/"
 
-private const val TEMP_URL = "https://public.codesquad.kr/"
 
 private val json = Json {
     isLenient = true // Jso\n 큰따옴표 느슨하게 체크.
@@ -64,7 +63,7 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(TEMP_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()

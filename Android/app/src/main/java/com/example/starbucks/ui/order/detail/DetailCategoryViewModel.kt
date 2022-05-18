@@ -14,9 +14,9 @@ class DetailCategoryViewModel(private val repository: CategoryRepository): ViewM
     val detailCategoryData: LiveData<List<DetailCategory>> = _detailCategoryData
 
 
-    fun getDetailCategory(type: Int) {
+    fun getDetailCategory(id: Int) {
         viewModelScope.launch {
-            _detailCategoryData.value = repository.getDetailCategory(type)
+            _detailCategoryData.value = repository.getDetailCategory(id)
         }
     }
 }

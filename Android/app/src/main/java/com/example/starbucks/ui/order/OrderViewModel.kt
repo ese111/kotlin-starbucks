@@ -15,7 +15,6 @@ class OrderViewModel(private val repository: CategoryRepository) : ViewModel() {
     val categoryData: LiveData<List<CategoryMenuData>> = _categoryData
 
 
-
     fun getCategoryData(type: String) {
         viewModelScope.launch {
             _categoryData.value = repository.getCategory(type)

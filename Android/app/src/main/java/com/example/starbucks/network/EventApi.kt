@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface EventApi {
 
-    @GET("jk/boostcamp/starbuckst-loading.json")
+    @GET("events/popup")
     suspend fun getEventInfo(): StartEventDTO
 
 }
