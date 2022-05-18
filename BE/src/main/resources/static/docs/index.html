@@ -453,7 +453,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/recommend HTTP/1.1
 Accept: application/json
-Host: localhost:58597</code></pre>
+Host: localhost:61545</code></pre>
 </div>
 </div>
 </div>
@@ -464,31 +464,31 @@ Host: localhost:58597</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Wed, 18 May 2022 06:55:19 GMT
+Date: Wed, 18 May 2022 07:34:38 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 851
+Content-Length: 867
 
 [ {
-  "id" : 5,
+  "id" : 21,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9300000004026]_20220406130314367.jpg",
+  "name" : "티라미수 크림 데니쉬"
+}, {
+  "id" : 8,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000003041]_20210427162406865.jpg",
+  "name" : "트리플 미니 스콘"
+}, {
+  "id" : 13,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000487]_20210430112319174.jpg",
+  "name" : "바닐라 크림 콜드 브루"
+}, {
+  "id" : 1,
   "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg",
-  "name" : "카페 아메리카노"
+  "name" : "카페라떼"
 }, {
-  "id" : 9,
-  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937947.jpg",
-  "name" : "아이스 카페 아메리카노"
-}, {
-  "id" : 7,
-  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110001099]_20210421161145813.jpg",
-  "name" : "미니 클래식 스콘"
-}, {
-  "id" : 11,
-  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000004119]_20220412083026158.png",
-  "name" : "라벤더 카페 브레베"
-}, {
-  "id" : 17,
-  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168004]_20210415134634879.jpg",
-  "name" : "모카 프라푸치노"
+  "id" : 18,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168066]_20210415154429903.jpg",
+  "name" : "초콜릿 크림 칩 프라푸치노"
 } ]</code></pre>
 </div>
 </div>
@@ -605,7 +605,8 @@ Content-Length: 537
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products?sort-by=orderCount&amp;order-by=desc HTTP/1.1
-Host: localhost:8080</code></pre>
+Accept: application/json
+Host: localhost:61545</code></pre>
 </div>
 </div>
 </div>
@@ -615,28 +616,32 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 448
+Transfer-Encoding: chunked
+Date: Wed, 18 May 2022 07:34:38 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 845
 
 [ {
   "id" : 1,
   "koreanTitle" : "카페라떼",
-  "imageUrl" : "Latteurl"
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg"
 }, {
   "id" : 2,
-  "koreanTitle" : "콜드브루",
-  "imageUrl" : "imageurl"
+  "koreanTitle" : "콜드 브루",
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000038]_20210430113202595.jpg"
 }, {
   "id" : 3,
   "koreanTitle" : "바닐라 크림 프라푸치노",
-  "imageUrl" : "imageurl"
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg"
 }, {
   "id" : 4,
   "koreanTitle" : "쿨라임 피지오",
-  "imageUrl" : "imageurl"
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107051]_20210419112152119.jpg"
 }, {
   "id" : 5,
   "koreanTitle" : "카페 아메리카노",
-  "imageUrl" : "americanourl"
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg"
 } ]</code></pre>
 </div>
 </div>
@@ -651,7 +656,8 @@ Content-Length: 448
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /products/1 HTTP/1.1
-Host: localhost:8080</code></pre>
+Accept: application/json
+Host: localhost:61545</code></pre>
 </div>
 </div>
 </div>
@@ -661,7 +667,11 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 283
+Transfer-Encoding: chunked
+Date: Wed, 18 May 2022 07:34:38 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 359
 
 {
   "id" : 1,
@@ -674,8 +684,8 @@ Content-Length: 283
   "na" : 8,
   "caffeine" : 75,
   "fat" : 6,
-  "protein" : 69,
-  "imageUrl" : "Latteurl"
+  "protein" : 6,
+  "imageUrl" : "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg"
 }</code></pre>
 </div>
 </div>
@@ -735,7 +745,7 @@ Content-Length: 443
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /categories/1 HTTP/1.1
 Accept: application/json
-Host: localhost:58597</code></pre>
+Host: localhost:61545</code></pre>
 </div>
 </div>
 </div>
@@ -746,7 +756,7 @@ Host: localhost:58597</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Wed, 18 May 2022 06:55:15 GMT
+Date: Wed, 18 May 2022 07:34:34 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 1446
@@ -799,7 +809,7 @@ Content-Length: 1446
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-18 15:53:12 +0900
+Last updated 2022-05-18 16:32:06 +0900
 </div>
 </div>
 </body>
