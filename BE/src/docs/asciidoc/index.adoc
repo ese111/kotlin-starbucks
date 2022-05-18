@@ -15,18 +15,18 @@ include::{snippets}/get-product-recommend/http-response.adoc[]
 == 진행중인 이벤트 조회
 
 === Request
-include::{snippets}/event-ongoing/http-request.adoc[]
+include::{snippets}/get-event-ongoing/http-request.adoc[]
 
 === Response
-include::{snippets}/event-ongoing/http-response.adoc[]
+include::{snippets}/get-event-ongoing/http-response.adoc[]
 
-== 이벤트 시작 날짜 내림차순으로 조회
+== 초기화면 팝업 이벤트 조회
 
 === Request
-include::{snippets}/event-sort/http-request.adoc[]
+include::{snippets}/get-popup-event/http-request.adoc[]
 
 === Response
-include::{snippets}/event-sort/http-response.adoc[]
+include::{snippets}/get-popup-event/http-response.adoc[]
 
 == 주문량이 높은 순서대로 상품 5개 조회
 
@@ -60,3 +60,18 @@ include::{snippets}/get-category-with-product/http-request.adoc[]
 === Response
 include::{snippets}/get-category-with-product/http-response.adoc[]
 
+== 메인 이벤트 조회
+
+=== Request
+include::{snippets}/get-main-event/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-main-event/http-response.adoc[]
+
+== 이벤트 시작 날짜를 내림차순으로 정렬한 모든 이벤트 조회
+
+=== Request
+include::{snippets}/get-all-event-by-desc/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-all-event-by-desc/http-response.adoc[]
