@@ -4,15 +4,27 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
+import io.restassured.RestAssured;
 import javax.transaction.Transactional;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @Transactional
 class CategoryIntegrationTest {
+
+	@LocalServerPort
+	int port;
+
+	@BeforeEach
+	void setup(){
+		RestAssured.port = port;
+	}
 
 	@Test
 	void 특정_카테고리와_관련된_상품을_조회한다() {
