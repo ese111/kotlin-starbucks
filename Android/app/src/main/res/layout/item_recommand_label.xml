@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.starbucks.data.vo.HomeData.HomeLabel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:text="과제Ivy님을 위한 추천 메뉴"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            labelColor="@{item.user}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

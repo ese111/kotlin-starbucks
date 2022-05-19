@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.starbucks.data.vo.HomeData.OngoingEvent.OngoingEventItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/iv_ongoing_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            imageUrl="@{item.imageUrl}"/>
+
+        <TextView
+            android:id="@+id/tv_ongoing_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_ongoing_image"
+            android:text="@{item.title}"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:text="에코 제주 보너스 스타" />
+
+        <TextView
+            android:id="@+id/tv_ongoing_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_ongoing_title"
+            android:textSize="20sp"
+            android:maxLines="2"
+            tools:text="에코매장에서 스타벅스 커피 먹으면 에코백 선물로 준답니다. 많이 참여해주세요."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
