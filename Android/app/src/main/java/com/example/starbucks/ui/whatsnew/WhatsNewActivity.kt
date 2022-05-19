@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.starbucks.databinding.ActivityWhatsNewBinding
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WhatsNewActivity: AppCompatActivity() {
@@ -25,9 +29,13 @@ class WhatsNewActivity: AppCompatActivity() {
             adapter = whatsNewAdapter
             layoutManager = LinearLayoutManager(context)
         }
-
-        viewModel.whatsNewList.observe(this){
-            whatsNewAdapter.submitList(it)
+        
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.whatsNewList.collect {
+                    whatsNewAdapter.submitList(it)
+                }
+            }
         }
 
         viewModel.error.observe(this) {
@@ -46,4 +54,5 @@ class WhatsNewActivity: AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

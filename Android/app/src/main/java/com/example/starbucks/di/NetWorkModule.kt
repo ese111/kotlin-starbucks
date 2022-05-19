@@ -11,8 +11,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
-private const val BASE_URL = "https://www.starbucks.co.kr/"
-
 private const val HOME_URL = "http://louie-03.com/"
 
 
@@ -54,7 +52,7 @@ val netWorkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(HOME_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()

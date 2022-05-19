@@ -7,8 +7,8 @@ import coil.transform.CircleCropTransformation
 import com.example.starbucks.R
 
 @BindingAdapter("imageUrl")
-fun applyImageAdapter(imageView: ImageView, image: String) {
-    if(image == "") {
+fun applyImageAdapter(imageView: ImageView, image: String?) {
+    if(image == "" || image == null) {
         imageView.load(R.drawable.ic_baseline_image_24)
     }else{
         imageView.load(image)

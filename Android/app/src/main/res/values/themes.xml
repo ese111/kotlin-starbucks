@@ -17,6 +17,7 @@
     <style name="Theme.StarBucks.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
 
     <style name="Theme.TodoList.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

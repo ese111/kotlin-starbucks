@@ -1,5 +1,7 @@
 package com.example.starbucks.di
 
+import com.example.starbucks.ui.detail.DetailViewModel
+import com.example.starbucks.ui.favorite.FavoriteViewModel
 import com.example.starbucks.ui.home.HomeViewModel
 import com.example.starbucks.ui.order.OrderViewModel
 import com.example.starbucks.ui.order.detail.DetailCategoryViewModel
@@ -15,4 +17,6 @@ val viewModelModule = module {
     viewModel { EventDialogViewModel(get()) }
     viewModel { OrderViewModel(get()) }
     viewModel { DetailCategoryViewModel(get()) }
+    viewModel { DetailViewModel(get(), get()) }
+    viewModel { FavoriteViewModel(get()) }
 }
