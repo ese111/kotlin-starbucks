@@ -75,3 +75,11 @@ include::{snippets}/get-all-event-by-desc/http-request.adoc[]
 
 === Response
 include::{snippets}/get-all-event-by-desc/http-response.adoc[]
+
+== 특정 상품 주문
+
+=== Request
+include::{snippets}/post-order-save/http-request.adoc[]
+
+=== Response
+include::{snippets}/post-order-save/http-response.adoc[]
