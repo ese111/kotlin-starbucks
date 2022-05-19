@@ -7,24 +7,25 @@ import com.example.starbucks.dto.toMainEvent
 import com.example.starbucks.dto.toOngoingEvent
 import com.example.starbucks.dto.toPopularMenu
 import com.example.starbucks.dto.toRecommendMenu
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flow
 import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeRepositoryImpl(private val dataSource: HomeDataSource) : HomeRepository {
 
-    override suspend fun getHomeData(): List<HomeData> {
+    override fun getHomeData(): Flow<List<HomeData>> = flow {
         val homeData = mutableListOf<HomeData>()
-
         homeData.add(HomeData.HomeLabel("얼음JK"))
         dataSource.getRecommendList().collect{ homeData.add(it.toRecommendMenu())}
-        //dataSource.getMainEvent().collect{ homeData.add(it.toMainEvent()) }
-        homeData.add(HomeData.MainEvent("https://image.istarbucks.co.kr/upload/news/u5HSL2_WEB_THUM_20220509084508321.jpg"))
+        dataSource.getMainEvent().collect{ homeData.add(it.toMainEvent()) }
         homeData.add(HomeData.EventAllViewBtnLabel())
         dataSource.ongoingEvent().collect{ homeData.add(it.toOngoingEvent()) }
         homeData.add(HomeData.PoplarMenuLabel(time = getTime()))
         dataSource.popularMenuList().collect{ homeData.add(it.toPopularMenu()) }
+        emit(homeData)
 
-        return homeData
     }
 
     private fun getTime(): String {

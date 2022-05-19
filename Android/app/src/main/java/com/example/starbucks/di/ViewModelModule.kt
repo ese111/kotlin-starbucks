@@ -19,5 +19,4 @@ val viewModelModule = module {
     viewModel { DetailCategoryViewModel(get()) }
     viewModel { DetailViewModel(get(), get()) }
     viewModel { FavoriteViewModel(get()) }
-
 }

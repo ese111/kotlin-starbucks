@@ -1,8 +1,9 @@
 package com.example.starbucks.data.repository
 
 import com.example.starbucks.data.vo.HomeData
+import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
 
-    suspend fun getHomeData(): List<HomeData>
+    fun getHomeData(): Flow<List<HomeData>>
 }

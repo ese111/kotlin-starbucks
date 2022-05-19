@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface EventDialogRepository {
 
-    suspend fun getEventInfo(): StartEvent
+    fun getEventInfo(): Flow<StartEvent>
 
 }

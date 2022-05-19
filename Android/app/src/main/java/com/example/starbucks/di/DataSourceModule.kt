@@ -11,4 +11,5 @@ val dataSourceModule = module {
     single<CategoryDataSource> { CategoryDataSourceImpl(get()) }
     single<DetailCategoryDataSource> { DetailCategoryDataSourceImpl(get()) }
     single<DetailDataSource> { DetailDataSourceImpl(get()) }
+    single<FavoriteDataSource> { FavoriteDataSourceImpl(get()) }
 }

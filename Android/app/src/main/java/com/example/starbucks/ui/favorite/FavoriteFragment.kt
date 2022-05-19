@@ -1,14 +1,15 @@
 package com.example.starbucks.ui.favorite
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.starbucks.R
-import com.example.starbucks.data.vo.FavoriteMenu
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.starbucks.databinding.FragmentFavoriteBinding
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
@@ -39,8 +40,13 @@ class FavoriteFragment : Fragment() {
         }
 
         binding.rvListInFavorite.adapter = adapter
-        viewModel.favoriteMenu.observe(viewLifecycleOwner){
-            adapter.submitList(it)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.favoriteMenu.collect {
+                    adapter.submitList(it)
+                }
+            }
         }
     }
 
