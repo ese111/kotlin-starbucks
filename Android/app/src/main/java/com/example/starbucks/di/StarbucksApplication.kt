@@ -16,7 +16,8 @@ class StarbucksApplication : Application() {
                 netWorkModule,
                 dataSourceModule,
                 repositoryModule,
-                viewModelModule
+                viewModelModule,
+                databaseModule
             )
         }
     }
