@@ -35,7 +35,11 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setAddFavorite() {
         binding.cbFavorite.setOnClickListener {
-            viewModel.addFavorite()
+            when(binding.cbFavorite.isChecked) {
+                true -> viewModel.addFavorite()
+                false -> viewModel.removeFavorite()
+            }
+
         }
     }
 

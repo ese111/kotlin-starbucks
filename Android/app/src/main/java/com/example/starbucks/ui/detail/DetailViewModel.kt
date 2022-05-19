@@ -39,4 +39,12 @@ class DetailViewModel(private val dao: FavoriteDAO, private val repository: Deta
             }
         }
     }
+
+    fun removeFavorite() {
+        viewModelScope.launch {
+            detailData.value?.let {
+                dao.delete(it.toFavorite())
+            }
+        }
+    }
 }

@@ -15,11 +15,7 @@ class FavoriteViewModel(private val dao: FavoriteDAO): ViewModel() {
     private val _favoriteMenu = MutableLiveData<List<FavoriteMenu>>()
     val favoriteMenu: LiveData<List<FavoriteMenu>> = _favoriteMenu
 
-    init {
-        getFavoriteData()
-    }
-
-    private fun getFavoriteData() {
+    fun getFavoriteData() {
         viewModelScope.launch {
             val data = withContext(Dispatchers.IO) {
                 dao.getFavorite()
@@ -31,6 +27,13 @@ class FavoriteViewModel(private val dao: FavoriteDAO): ViewModel() {
     fun removeFavoriteData(item: FavoriteMenu) {
         viewModelScope.launch(Dispatchers.IO) {
             dao.delete(item)
+            getFavoriteData()
+        }
+    }
+
+    fun addFavoriteData(item: FavoriteMenu) {
+        viewModelScope.launch {
+            dao.insert(item)
         }
     }
 }

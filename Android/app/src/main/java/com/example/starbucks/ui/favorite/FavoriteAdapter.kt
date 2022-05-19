@@ -9,8 +9,9 @@ import com.example.starbucks.R
 import com.example.starbucks.data.vo.FavoriteMenu
 import com.example.starbucks.databinding.ItemFavoriteBinding
 
-class FavoriteAdapter(private val remove: (FavoriteMenu) -> (Unit)) :
+class FavoriteAdapter(private val setFavorite: (FavoriteMenu, Boolean) -> (Unit)) :
     ListAdapter<FavoriteMenu, FavoriteAdapter.FavoriteViewHolder>(FavoriteDiffUtil) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         return FavoriteViewHolder(
             ItemFavoriteBinding.inflate(
@@ -35,8 +36,7 @@ class FavoriteAdapter(private val remove: (FavoriteMenu) -> (Unit)) :
 
         private fun setOnClickHeart(data: FavoriteMenu) {
             binding.cbHeart.setOnClickListener {
-                binding.cbHeart.isChecked = false
-                remove(data)
+                setFavorite(data, binding.cbHeart.isChecked)
             }
         }
     }

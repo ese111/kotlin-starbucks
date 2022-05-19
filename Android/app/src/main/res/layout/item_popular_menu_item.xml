@@ -10,17 +10,17 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="300dp">
 
         <ImageView
             android:id="@+id/iv_popular_menu_image"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintWidth_percent="0.6"
             circleImage="@{item.imageUrl}"/>
 
         <TextView
