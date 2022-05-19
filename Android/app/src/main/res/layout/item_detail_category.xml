@@ -76,7 +76,7 @@
             app:layout_constraintStart_toEndOf="@id/tv_menu_title_kor_in_category"
             android:layout_marginStart="10dp"
             android:textColor="@color/badge"
-            android:visibility="@{item.best ? View.GONE : View.VISIBLE}"
+            android:visibility="@{item.best ? View.VISIBLE : View.GONE}"
             android:text="@string/badge"/>
 
         <TextView
